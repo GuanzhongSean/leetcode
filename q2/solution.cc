@@ -1,16 +1,4 @@
-#include <iostream>
-
-using namespace std;
-
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-    ~ListNode() {delete next;}
-    void print() {cout << val << endl; if (next) next->print();}
-};
+#include "../include/ListNode.h"
  
 class Solution {
 public:
