@@ -8,24 +8,22 @@ class Solution {
 public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         sort(candidates.begin(), candidates.end());
-        return helper(candidates, target, 0);
+        vector<vector<int>> res;
+        vector<int> ds;
+        helper(0, target, candidates, ds, res);
+        return res;
     }
 private:
-    vector<vector<int>> helper(vector<int>& candidates, int target, int start) {
-        vector<vector<int>> results{};
-        if ((candidates[start] > target && candidates[start] > 0) ||
-            (candidates.back() < target && candidates.back() < 0)) return results;
-        for (int i = start; i < candidates.size(); i++) {
-            int x = candidates[i];
-            vector<vector<int>> vv = helper(candidates, target - x, i);
-            for (auto v : vv) {
-                v.emplace_back(x);
-                results.emplace_back(v);
-            }
-            if (x == target)
-                results.emplace_back(vector<int>{x});
+    void helper(int ind, int target, vector<int>& arr, vector<int>& ds, vector<vector<int>>& res){
+        for (int i = ind; i < arr.size(); i++) {
+            if (arr[i] > target) break;
+            ds.push_back(arr[i]);
+            if (target == arr[i])
+                res.push_back(ds);
+            else
+                helper(i, target - arr[i], arr, ds, res);
+            ds.pop_back();
         }
-        return results;
     }
 };
 
