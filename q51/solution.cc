@@ -10,9 +10,8 @@ public:
              vector<vector<string>> &answer, vector<int> &leftRow,
              vector<int> &upperDiag, vector<int> &lowerDiag) {
 
-    if (col == n) {
+    if (col == n)
       answer.push_back(board);
-    }
 
     for (int row = 0; row < n; row++) {
       if (leftRow[row] == 0 && upperDiag[row + col] == 0 &&
@@ -35,13 +34,12 @@ public:
     vector<vector<string>> answer;
     vector<string> board(n);
     string s(n, '.');
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
       board[i] = s;
-    }
     vector<int> leftRow(n, 0), upperDiag(2 * n - 1, 0), lowerDiag(2 * n - 1, 0);
     solve(col, n, board, answer, leftRow, upperDiag, lowerDiag);
     return answer;
   }
 };
 
-int main() { cout << Solution().solveNQueens(9); }
+int main() { cout << Solution().solveNQueens(4); }
