@@ -1,0 +1,2 @@
+all:
+	node solution.js
