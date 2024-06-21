@@ -1,3 +1,4 @@
+from collections import defaultdict
 import heapq
 
 
@@ -20,6 +21,25 @@ class Solution:
                 heapq.heappush(min_heap, (char, char))
 
         return ''.join(stack)
+
+
+class Solution:
+    def clearStars(self, s: str) -> str:
+        heap = []
+        charIndex = defaultdict(list)
+        s = list(s)
+        for i, c in enumerate(s):
+            if c == "*":
+                toRemove = heap[0]
+                s[charIndex[toRemove].pop()] = ""
+                if not charIndex[toRemove]:
+                    heapq.heappop(heap)
+                s[i] = ""
+            else:
+                if len(charIndex[c]) == 0:
+                    heapq.heappush(heap, c)
+                charIndex[c].append(i)
+        return "".join(s)
 
 
 print(Solution().clearStars("aaba*"))
