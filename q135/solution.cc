@@ -5,7 +5,7 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   int candy(std::vector<int> &ratings) {
     vector<int> A(ratings.size());
     vector<int> S(ratings.size(), 1);
@@ -24,8 +24,7 @@ public:
       if (A[i] != 0 && ratings[A[i]] > ratings[A[i] - 1])
         S[A[i]] = std::max(S[A[i]], S[A[i] - 1] + 1);
     }
-    for (int i : S)
-      totalCandies += i;
+    for (int i : S) totalCandies += i;
 
     return totalCandies;
   }

@@ -6,18 +6,15 @@ class Solution {
   vector<vector<int>> combine(int n, int k) {
     vector<vector<int>> result;
     vector<int> start;
-    for (int i = 0; i < k; i++)
-      start.push_back(i + 1);
+    for (int i = 0; i < k; i++) start.push_back(i + 1);
 
     int idx = 0;
     while (true) {
       if (start[idx] > n - k + idx + 1) {
-        if (idx == 0)
-          break;
+        if (idx == 0) break;
         idx--;
         start[idx]++;
-        for (int i = idx; i < k - 1; i++)
-          start[i + 1] = start[i] + 1;
+        for (int i = idx; i < k - 1; i++) start[i + 1] = start[i] + 1;
       } else if (idx < k - 1) {
         idx++;
       } else {
@@ -28,15 +25,14 @@ class Solution {
     return result;
   }
 
-public:
+ public:
   vector<vector<int>> subsets(vector<int> &nums) {
     vector<vector<int>> result{{}};
     int n = nums.size();
     for (int i = 1; i < n; i++) {
       vector<vector<int>> v = combine(n, i);
       for (vector<int> &e : v) {
-        for (int &j : e)
-          j = nums[j - 1];
+        for (int &j : e) j = nums[j - 1];
       }
       result.insert(result.end(), v.begin(), v.end());
     }
@@ -46,7 +42,7 @@ public:
 };
 
 class Solution2 {
-public:
+ public:
   vector<vector<int>> output;
   int n, k;
   void backtrack(int first, vector<int> curr, vector<int> &nums) {

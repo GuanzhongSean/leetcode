@@ -4,7 +4,7 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   int uniquePaths(int m, int n) {
     int dp[m][n];
     memset(&dp, 0, sizeof(dp));

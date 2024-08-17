@@ -8,8 +8,7 @@ using namespace std;
 class Solution {
   bool dfs(vector<vector<char>> &board, string &word, int i, int j, int index,
            vector<vector<bool>> &record) {
-    if (index == word.size())
-      return true;
+    if (index == word.size()) return true;
     if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size() ||
         board[i][j] != word[index] || record[i][j])
       return false;
@@ -25,15 +24,14 @@ class Solution {
     }
   }
 
-public:
+ public:
   bool exist(vector<vector<char>> &board, string word) {
     int n = board.size(), m = board[0].size();
     vector<vector<bool>> record(n, vector<bool>(m, false));
     for (int i = 0; i < n; i++)
       for (int j = 0; j < m; j++)
         if (board[i][j] == word[0])
-          if (dfs(board, word, i, j, 0, record))
-            return true;
+          if (dfs(board, word, i, j, 0, record)) return true;
     return false;
   }
 };
@@ -48,8 +46,7 @@ class Solution2 {
         (*_board)[i][j] != _str[idx])
       return false;
 
-    if (idx == _lastIdx)
-      return true;
+    if (idx == _lastIdx) return true;
 
     char restore = (*_board)[i][j];
     (*_board)[i][j] = '1';
@@ -62,12 +59,10 @@ class Solution2 {
     return left || right || up || down;
   }
 
-public:
+ public:
   bool exist(vector<vector<char>> &board, string word) {
-    if (word.empty())
-      return true;
-    if (board.empty())
-      return false;
+    if (word.empty()) return true;
+    if (board.empty()) return false;
 
     _str = word;
     _lastIdx = _str.size() - 1;
@@ -83,20 +78,17 @@ public:
     // check if word construction is even possible from the grid - complexity of
     // O(rows * columns) << O(4^(rows * columns))
     for (int i = 0; i < _rows; i++)
-      for (int j = 0; j < _cols; j++)
-        freq[board[i][j] - 'A']++;
+      for (int j = 0; j < _cols; j++) freq[board[i][j] - 'A']++;
 
     for (char c : _str)
-      if (--freq[c - 'A'] < 0)
-        return false;
+      if (--freq[c - 'A'] < 0) return false;
 
     if (freq[word[0] - 'A'] > freq[word[_lastIdx] - 'A'])
       reverse(word.begin(), word.end());
 
     for (int i = 0; i < _rows; ++i)
       for (int j = 0; j < _cols; ++j)
-        if (dfs(i, j, 0))
-          return true;
+        if (dfs(i, j, 0)) return true;
 
     return false;
   }

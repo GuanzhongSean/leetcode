@@ -5,7 +5,7 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   bool isNumber(string s) {
     regex r("^[+-]?((\\d+\\.\\d*)|(\\.\\d+)|(\\d+))(e[+-]?\\d+)?$",
             regex_constants::icase);
@@ -14,15 +14,13 @@ public:
 };
 
 class Solution2 {
-public:
+ public:
   bool isNumber(string s) {
     int i = 0, n = s.size();
-    if (s[i] == '+' || s[i] == '-')
-      i++;
+    if (s[i] == '+' || s[i] == '-') i++;
 
     // checking ending condition
-    if (i >= n)
-      return false;
+    if (i >= n) return false;
 
     bool beforeInt = false;
 
@@ -33,8 +31,7 @@ public:
     }
 
     // checking ending condition
-    if (i >= n)
-      return true;
+    if (i >= n) return true;
 
     // Passing dot
     bool dot = false;
@@ -58,32 +55,26 @@ public:
         if ((s[i] < '0' || s[i] > '9') && (s[i] != 'e' && s[i] != 'E'))
           return false;
       } else {
-        if (s[i] < '0' || s[i] > '9')
-          return false;
+        if (s[i] < '0' || s[i] > '9') return false;
       }
 
     // iterate decimals until we reach last indext or e
     while (i < n && s[i] != 'e' && s[i] != 'E') {
-      if (s[i] < '0' || s[i] > '9')
-        return false;
+      if (s[i] < '0' || s[i] > '9') return false;
       i++;
     }
     if (!dot)
-      if ((s[i] == 'e' || s[i] == 'E') && beforeInt == false)
-        return false;
+      if ((s[i] == 'e' || s[i] == 'E') && beforeInt == false) return false;
     // checking ending condition
-    if (i >= n)
-      return true;
+    if (i >= n) return true;
 
-    i++; // next ot e
+    i++;  // next ot e
 
     // iterate sign
-    if (s[i] == '+' || s[i] == '-')
-      i++;
+    if (s[i] == '+' || s[i] == '-') i++;
 
     // checking ending condition
-    if (i >= n)
-      return false;
+    if (i >= n) return false;
 
     bool lastInt = false;
     // iterate over digits
@@ -92,11 +83,9 @@ public:
       lastInt = true;
     }
 
-    if (!lastInt)
-      return false;
+    if (!lastInt) return false;
 
-    if (i >= n)
-      return true;
+    if (i >= n) return true;
     return false;
   }
 };

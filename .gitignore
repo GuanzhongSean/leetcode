@@ -2,3 +2,7 @@ a.out
 .vscode/
 .venv/
 __pycache__/
+.clang-format
+node_modules/
+package-lock.json
+package.json

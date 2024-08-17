@@ -6,19 +6,17 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   vector<int> maxnum(vector<int> nums, int k) {
     stack<int> st;
     int n = nums.size();
     for (int i = 0; i < n; i++) {
       while (!st.empty() && nums[st.top()] < nums[i] && n - i + st.size() > k)
         st.pop();
-      if (st.size() < k)
-        st.push(i);
+      if (st.size() < k) st.push(i);
     }
     vector<int> ans;
-    while (!st.empty())
-      ans.push_back(nums[st.top()]), st.pop();
+    while (!st.empty()) ans.push_back(nums[st.top()]), st.pop();
     reverse(ans.begin(), ans.end());
     return ans;
   }
@@ -46,13 +44,10 @@ public:
       else
         ans[x++] = n1[i], i++;
     }
-    while (i < n1.size())
-      ans[x++] = n1[i], i++;
-    while (j < n2.size())
-      ans[x++] = n2[j], j++;
+    while (i < n1.size()) ans[x++] = n1[i], i++;
+    while (j < n2.size()) ans[x++] = n2[j], j++;
     string s = "";
-    for (auto it : ans)
-      s += to_string(it);
+    for (auto it : ans) s += to_string(it);
     return s;
   }
 
@@ -61,17 +56,16 @@ public:
     string mx = "";
     for (int i = 0; i <= k && i <= n; i++) {
       if ((k - i) > m)
-        continue; // If we are taking i size of largest array from nums1 then
-                  // are we capable of building k-i size of largest array from
-                  // num2 .
+        continue;  // If we are taking i size of largest array from nums1 then
+                   // are we capable of building k-i size of largest array from
+                   // num2 .
       vector<int> n1 = maxnum(nums1, i);
       vector<int> n2 = maxnum(nums2, k - i);
       string s = merge(n1, n2, k);
       mx = max(mx, s);
     }
     vector<int> res;
-    for (int i = 0; i < mx.size(); i++)
-      res.push_back(mx[i] - '0');
+    for (int i = 0; i < mx.size(); i++) res.push_back(mx[i] - '0');
     return res;
   }
 };

@@ -6,11 +6,10 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   int duplicateNumbersXOR(vector<int> &nums) {
     unordered_map<int, int> count;
-    for (int num : nums)
-      count[num]++;
+    for (int num : nums) count[num]++;
     int result = 0;
     for (auto &pair : count) {
       if (pair.second == 2) {
@@ -23,8 +22,7 @@ public:
                                    int x) {
     vector<int> occurrences;
     for (int i = 0; i < nums.size(); ++i)
-      if (nums[i] == x)
-        occurrences.push_back(i);
+      if (nums[i] == x) occurrences.push_back(i);
 
     vector<int> answer;
     for (int query : queries)
@@ -79,8 +77,8 @@ public:
         int x = query[1];
         int sz = query[2];
         if (x < sz) {
-            results.push_back(false);
-            continue;
+          results.push_back(false);
+          continue;
         }
         bool canPlace = false;
         int prev = 0;
@@ -91,12 +89,10 @@ public:
             break;
           }
           prev = current;
-          if (current > x - sz)
-            break;
+          if (current > x - sz) break;
         }
 
-        if (!canPlace && x - prev >= sz)
-          canPlace = true;
+        if (!canPlace && x - prev >= sz) canPlace = true;
 
         results.push_back(canPlace);
       }

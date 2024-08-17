@@ -1,10 +1,11 @@
-#include "../include/utils.h"
 #include <algorithm>
+
+#include "../include/utils.h"
 
 using namespace std;
 
 class Solution {
-public:
+ public:
   vector<vector<int>> merge(vector<vector<int>> &intervals) {
     int n = intervals.size();
     sort(intervals.begin(), intervals.end());

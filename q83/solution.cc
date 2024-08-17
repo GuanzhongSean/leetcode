@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   ListNode *deleteDuplicates(ListNode *head) {
     ListNode *prev = nullptr;
     ListNode *curr = head;

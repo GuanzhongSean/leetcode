@@ -3,10 +3,9 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   ListNode *rotateRight(ListNode *head, int k) {
-    if (!head)
-      return NULL;
+    if (!head) return NULL;
     int l = 1;
     ListNode *curr = head;
     while (curr->next) {
@@ -17,8 +16,7 @@ public:
     curr->next = head;
     k = k % l;
     int x = l - k;
-    while (curr->next && x--)
-      curr = curr->next;
+    while (curr->next && x--) curr = curr->next;
     head = curr->next;
     curr->next = NULL;
     return head;

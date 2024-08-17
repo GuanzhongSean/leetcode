@@ -37,8 +37,7 @@ inline ListNode *generateList(vector<int> from) {
 }
 
 inline ostream &operator<<(ostream &os, ListNode *node) {
-  if (node == nullptr)
-    return os << "nullptr";
+  if (node == nullptr) return os << "nullptr";
   return os << node->val << " " << node->next;
 }
 

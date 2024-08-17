@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   vector<int> plusOne(vector<int> &digits) {
     int i = digits.size() - 1;
     vector<int> ans{digits};

@@ -5,7 +5,7 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   int numberOfPairs(vector<int> &nums1, vector<int> &nums2, int k) {
     int count = 0;
     int n = nums1.size();
@@ -43,7 +43,7 @@ public:
 };
 
 class Solution2 {
-public:
+ public:
   long long numberOfPairs(std::vector<int> &nums1, std::vector<int> &nums2,
                           int k) {
     std::unordered_map<int, int> productCount;

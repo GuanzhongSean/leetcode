@@ -6,7 +6,7 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   vector<vector<string>> groupAnagrams(vector<string> &strs) {
     unordered_map<string, int> map{};
     vector<vector<string>> ans{};

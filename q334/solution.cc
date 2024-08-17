@@ -5,24 +5,21 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   bool increasingTriplet(vector<int> &nums) {
     int n = nums.size(), min;
     vector<bool> d(n, false);
-    if (n > 0)
-      min = nums[0];
+    if (n > 0) min = nums[0];
     for (int i = 1; i < n; i++) {
       if (nums[i] > min) {
         d[i] = true;
       }
       min = std::min(min, nums[i]);
     }
-    if (n > 1)
-      min = nums[1];
+    if (n > 1) min = nums[1];
     int min_i = 1;
     for (int i = 2; i < n; i++) {
-      if (nums[i] > min && d[min_i])
-        return true;
+      if (nums[i] > min && d[min_i]) return true;
       if (d[i] && (nums[i] < min || !d[min_i])) {
         min = nums[i];
         min_i = i;
@@ -33,7 +30,7 @@ public:
 };
 
 class Solution2 {
-public:
+ public:
   bool increasingTriplet(vector<int> &nums) {
     int fst = INT_MAX;
     int scnd = INT_MAX;

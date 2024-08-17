@@ -3,10 +3,9 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   int mySqrt(int x) {
-    if (x == 0 || x == 1)
-      return x;
+    if (x == 0 || x == 1) return x;
 
     int start = 1, end = x / 2;
     while (start <= end) {

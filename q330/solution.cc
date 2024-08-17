@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   int minPatches(vector<int> &nums, int n) {
     long maxReach = 0;
     int count = 0, i = 0;

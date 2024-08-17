@@ -4,7 +4,7 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   bool search(vector<int> &nums, int target) {
     int left = 0, right = nums.size() - 1;
     while (left <= right) {
@@ -35,7 +35,7 @@ public:
 };
 
 class Solution2 {
-public:
+ public:
   bool search(vector<int> &nums, int target) {
     for (int itr : nums) {
       if (itr == target) {

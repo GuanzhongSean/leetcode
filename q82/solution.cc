@@ -1,10 +1,11 @@
-#include "../include/ListNode.h"
 #include <map>
+
+#include "../include/ListNode.h"
 
 using namespace std;
 
 class Solution {
-public:
+ public:
   ListNode *deleteDuplicates(ListNode *head) {
     ListNode *prev = nullptr;
     ListNode *curr = head;
@@ -30,14 +31,12 @@ public:
 };
 
 class Solution2 {
-public:
+ public:
   ListNode *deleteDuplicates(ListNode *head) {
     map<int, int> umap;
-    for (auto curr = head; curr; curr = curr->next)
-      umap[curr->val]++;
+    for (auto curr = head; curr; curr = curr->next) umap[curr->val]++;
 
-    if (umap.size() == 0)
-      return nullptr;
+    if (umap.size() == 0) return nullptr;
 
     ListNode dummy = ListNode(101);
     ListNode *d = &dummy;

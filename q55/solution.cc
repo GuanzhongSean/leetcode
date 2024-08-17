@@ -4,7 +4,7 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   bool canJump(vector<int> &nums) {
     int cur = 0;
     while (cur < nums.size() - 1) {
@@ -16,8 +16,7 @@ public:
           max = i + nums[cur + i];
         }
       }
-      if (new_cur == cur)
-        return false;
+      if (new_cur == cur) return false;
       cur = new_cur;
     }
     return true;
@@ -25,6 +24,6 @@ public:
 };
 
 int main() {
-  vector<int> v{2,3,1,1,4};
+  vector<int> v{2, 3, 1, 1, 4};
   cout << Solution().canJump(v) << endl;
 }

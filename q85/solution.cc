@@ -5,15 +5,14 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   int maximalRectangle(vector<vector<char>> &matrix) {
-    if (matrix.empty() || matrix[0].empty())
-      return 0;
+    if (matrix.empty() || matrix[0].empty()) return 0;
 
     int rows = matrix.size();
     int cols = matrix[0].size();
     vector<int> heights(cols + 1,
-                        0); // Include an extra element for easier calculation
+                        0);  // Include an extra element for easier calculation
     int maxArea = 0;
 
     for (const auto &row : matrix) {

@@ -7,7 +7,7 @@
 using namespace std;
 
 class Solution {
-public:
+ public:
   int N = 50005;
   int MAX = 4 * 50005 + 5;
   int arr[50005];
@@ -15,8 +15,7 @@ public:
   int lazy[4 * 50005 + 5];
 
   void build_tree(int node, int a, int b) {
-    if (a > b)
-      return;
+    if (a > b) return;
     if (a == b) {
       tree[node] = arr[a];
       return;
@@ -35,8 +34,7 @@ public:
       }
       lazy[node] = 0;
     }
-    if (a > b || a > j || b < i)
-      return;
+    if (a > b || a > j || b < i) return;
     if (a >= i && b <= j) {
       tree[node] += value;
       if (a != b) {
@@ -51,8 +49,7 @@ public:
   }
 
   int query_tree(int node, int a, int b, int i, int j) {
-    if (a > b || a > j || b < i)
-      return -1e9;
+    if (a > b || a > j || b < i) return -1e9;
     if (lazy[node] != 0) {
       tree[node] += lazy[node];
       if (a != b) {
@@ -61,16 +58,14 @@ public:
       }
       lazy[node] = 0;
     }
-    if (a >= i && b <= j)
-      return tree[node];
+    if (a >= i && b <= j) return tree[node];
     int q1 = query_tree(node * 2, a, (a + b) / 2, i, j);
     int q2 = query_tree(1 + node * 2, 1 + (a + b) / 2, b, i, j);
     int res = max(q1, q2);
     return res;
   }
   vector<bool> getResults(vector<vector<int>> &queries) {
-    for (int i = 0; i < N; i++)
-      arr[i] = i;
+    for (int i = 0; i < N; i++) arr[i] = i;
     build_tree(1, 0, N - 1);
     memset(lazy, 0, sizeof lazy);
     vector<bool> ans;
@@ -98,7 +93,6 @@ int main() {
   vector<vector<int>> queries = {{1, 2}, {2, 3, 3}, {2, 3, 1}, {2, 2, 2}};
   vector<bool> result = Solution().getResults(queries);
   cout << boolalpha;
-  for (bool b : result)
-    cout << b << " ";
+  for (bool b : result) cout << b << " ";
   cout << endl;
 }

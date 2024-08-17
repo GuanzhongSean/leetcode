@@ -1,10 +1,11 @@
-#include "../include/utils.h"
 #include <vector>
+
+#include "../include/utils.h"
 
 using namespace std;
 
 class Solution {
-public:
+ public:
   vector<string> fullJustify(vector<string> &words, int maxWidth) {
     vector<string> res;
     int i = 0;
@@ -12,8 +13,7 @@ public:
       int j = i + 1;
       int len = words[i].size();
       while (j < words.size()) {
-        if (len + 1 + words[j].size() > maxWidth)
-          break;
+        if (len + 1 + words[j].size() > maxWidth) break;
         len += 1 + words[j++].size();
       }
       string line = words[i];

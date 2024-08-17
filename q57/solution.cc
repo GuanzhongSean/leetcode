@@ -1,10 +1,11 @@
-#include "../include/utils.h"
 #include <vector>
+
+#include "../include/utils.h"
 
 using namespace std;
 
 class Solution {
-public:
+ public:
   vector<vector<int>> insert(vector<vector<int>> &intervals,
                              vector<int> &newInterval) {
     bool inserted = false;
@@ -23,14 +24,13 @@ public:
         newInterval[1] = max(newInterval[1], i[1]);
       }
     }
-    if (!inserted)
-      ans.push_back(newInterval);
+    if (!inserted) ans.push_back(newInterval);
     return ans;
   }
 };
 
 class Solution2 {
-public:
+ public:
   vector<vector<int>> insert(vector<vector<int>> &intervals,
                              vector<int> &newInterval) {
     int i = 0;
@@ -46,8 +46,7 @@ public:
 
     ans.push_back(newInterval);
 
-    while (i < intervals.size())
-      ans.push_back(intervals[i++]);
+    while (i < intervals.size()) ans.push_back(intervals[i++]);
 
     return ans;
   }
