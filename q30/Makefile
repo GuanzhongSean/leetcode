@@ -1,2 +1,2 @@
 all:
-	clang++ -std=c++20 solution.cc
+	clang++ solution.cc -L../include -I../include -I../

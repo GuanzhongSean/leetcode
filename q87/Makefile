@@ -1,5 +1,5 @@
 all:
-	clang++ solution.cc ../include/ListNode.o ../include/utils.o -L. -I../include ../include/ListNode.o ../include/utils.o -L. -I../include
+	clang++ solution.cc -L../include -I../include -I../
 
 clean:
 	rm -f a.out

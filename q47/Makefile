@@ -1,2 +1,2 @@
 all:
-	g++ -std=c++2a solution.cc
+	clang++ solution.cc -L../include -I../include -I../
