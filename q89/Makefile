@@ -1,0 +1,6 @@
+all:
+	clang++ solution.cc -L../include -I../include -I../
+	./a.out
+
+clean:
+	rm -f a.out
