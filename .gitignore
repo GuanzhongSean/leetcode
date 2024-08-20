@@ -1,8 +1,9 @@
 a.out
-.vscode/
 .venv/
 __pycache__/
-.clang-format
+.clangd
 node_modules/
 package-lock.json
 package.json
+*.o
+*.so

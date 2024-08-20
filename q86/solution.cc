@@ -1,6 +1,4 @@
-#include "../include/ListNode.h"
-
-using namespace std;
+#include "ListNode.h"
 
 class Solution {
  public:

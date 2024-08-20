@@ -1,0 +1,6 @@
+{
+  "makefile.configureOnOpen": false,
+  "editor.formatOnSave": true,
+  "clangd.arguments": ["--enable-config", "-pretty"],
+  "clangd.fallbackFlags": ["-I${workspaceFolder}/include"]
+}

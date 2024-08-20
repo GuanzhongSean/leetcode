@@ -12,33 +12,11 @@ struct ListNode {
   ListNode() : val(0), next(nullptr) {}
   ListNode(int x) : val(x), next(nullptr) {}
   ListNode(int x, ListNode *next) : val(x), next(next) {}
+  ListNode(vector<int> from);
   ~ListNode() { delete next; };
-  void print() {
-    cout << val << " ";
-    if (next)
-      next->print();
-    else
-      cout << endl;
-  }
+  void print();
 };
 
-inline ListNode *generateList(vector<int> from) {
-  ListNode *head = nullptr, *cur = nullptr;
-  for (int i : from) {
-    if (!head) {
-      head = new ListNode(i);
-      cur = head;
-      continue;
-    }
-    cur->next = new ListNode(i);
-    cur = cur->next;
-  }
-  return head;
-}
-
-inline ostream &operator<<(ostream &os, ListNode *node) {
-  if (node == nullptr) return os << "nullptr";
-  return os << node->val << " " << node->next;
-}
+ostream &operator<<(ostream &os, ListNode *node);
 
 #endif

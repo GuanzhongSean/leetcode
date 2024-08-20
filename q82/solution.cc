@@ -1,6 +1,6 @@
 #include <map>
 
-#include "../include/ListNode.h"
+#include "ListNode.h"
 
 using namespace std;
 

@@ -1,3 +1,3 @@
 all:
 	node solution.js
-	clang++ solution.cc
+	clang++ solution.cc ../include/ListNode.o ../include/utils.o -L. -I../include
