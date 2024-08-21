@@ -3,16 +3,29 @@
 
 #include "ListNode.h"
 
-template <typename T>
-void print(vector<T> v) {
-  for (T i : v) cout << i << " ";
-  cout << endl;
-}
-
 void print(ListNode *head);
 
 template <typename T>
-inline ostream &operator<<(ostream &os, vector<T> v) {
+void print(const T &arg, string delimiter = " ") {
+  cout << arg << delimiter;
+}
+
+template <typename T, typename... Args>
+void print(const T &first, const Args &...args) {
+  print(first);
+  print(args...);
+  if constexpr (sizeof...(args) == 1) cout << endl;
+}
+
+template <typename T>
+void print(vector<T> v) {
+  cout << "[";
+  for (T i : v) print(i);
+  cout << "]" << endl;
+}
+
+template <typename T>
+ostream &operator<<(ostream &os, vector<T> v) {
   for (T i : v) os << i << " ";
   return os << endl;
 }
