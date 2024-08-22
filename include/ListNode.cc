@@ -19,6 +19,6 @@ void ListNode::print() {
 }
 
 ostream &operator<<(ostream &os, ListNode *node) {
-  if (node == nullptr) return os << "nullptr";
+  if (!node) return os << endl;
   return os << node->val << " " << node->next;
 }

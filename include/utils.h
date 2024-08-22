@@ -3,7 +3,9 @@
 
 #include "ListNode.h"
 
-void print(ListNode *head);
+inline void print(ListNode *head) {
+  if (head) head->print();
+}
 
 template <typename T, typename... Args>
 void print(const T &first, const Args &...args) {
