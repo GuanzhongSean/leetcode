@@ -5,29 +5,27 @@
 
 void print(ListNode *head);
 
-template <typename T>
-void print(const T &arg, string delimiter = " ") {
-  cout << arg << delimiter;
-}
-
 template <typename T, typename... Args>
 void print(const T &first, const Args &...args) {
-  print(first);
-  print(args...);
-  if constexpr (sizeof...(args) == 1) cout << endl;
-}
-
-template <typename T>
-void print(vector<T> v) {
-  cout << "[";
-  for (T i : v) print(i);
-  cout << "]" << endl;
+  if constexpr (sizeof...(args) > 0) {
+    cout << first << " ";
+    print(args...);
+  } else {
+    cout << first << endl;
+  }
 }
 
 template <typename T>
 ostream &operator<<(ostream &os, vector<T> v) {
-  for (T i : v) os << i << " ";
-  return os << endl;
+  os << "[";
+  for (int i = 0; i < v.size(); i++)
+    os << v[i] << (i == v.size() - 1 ? "" : " ");
+  return os << "]" << endl;
+}
+
+template <typename T>
+inline void print(vector<T> v) {
+  cout << v;
 }
 
 #endif
