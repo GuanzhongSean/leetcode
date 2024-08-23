@@ -29,6 +29,6 @@ class Solution {
 int main() {
   ListNode *head = new ListNode({1, 2, 3, 4, 5});
   auto result = q92::Solution().reverseBetween(head, 2, 4);
-  print(head);
+  print(result);
   delete head;
 }
