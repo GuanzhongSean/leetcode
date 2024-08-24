@@ -2,9 +2,14 @@
 #define _MY_UTILS_ 1
 
 #include "ListNode.h"
+#include "TreeNode.h"
 
 inline void print(ListNode *head) {
   if (head) head->print();
+}
+
+inline void print(TreeNode *root) {
+  if (root) root->print();
 }
 
 template <typename T, typename... Args>

@@ -3,6 +3,8 @@ all:
 	rm -f include/*.o include/*.so
 	clang++ -std=c++20 -fPIC -c include/ListNode.cc -o include/ListNode.o
 	clang++ -std=c++20 -shared -o include/libListNode.so include/ListNode.o
+	clang++ -std=c++20 -fPIC -c include/TreeNode.cc -o include/TreeNode.o
+	clang++ -std=c++20 -shared -o include/libTreeNode.so include/TreeNode.o
 	clang++ -std=c++20 -fPIC -c include/utils.cc -o include/utils.o
 	clang++ -std=c++20 -shared -o include/libutils.so include/utils.o
 	export LD_LIBRARY_PATH=../include:$LD_LIBRARY_PATH
