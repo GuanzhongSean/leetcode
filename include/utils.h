@@ -1,8 +1,19 @@
 #ifndef _MY_UTILS_
 #define _MY_UTILS_ 1
 
+#include <type_traits>
+
 #include "ListNode.h"
 #include "TreeNode.h"
+
+struct NodeHash {
+  size_t operator()(const pair<int, int> &pair) const {
+    return hash<int>()(pair.first) ^ (hash<int>()(pair.second) << 1);
+  }
+  size_t operator()(const pair<double, double> &pair) const {
+    return hash<double>()(pair.first) ^ (hash<double>()(pair.second) << 1);
+  }
+};
 
 inline void print(ListNode *head) {
   if (head) head->print();
@@ -24,15 +35,15 @@ void print(const T &first, const Args &...args) {
 
 template <typename T>
 ostream &operator<<(ostream &os, vector<T> v) {
-  os << "[";
-  for (int i = 0; i < v.size(); i++)
-    os << v[i] << (i == v.size() - 1 ? "" : " ");
-  return os << "]" << endl;
+  string delimiter = is_fundamental<T>::value ? " " : "\n";
+  os << "[" << delimiter;
+  for (T i : v) os << i << delimiter;
+  return os << "]";
 }
 
 template <typename T>
 inline void print(vector<T> v) {
-  cout << v;
+  cout << v << endl;
 }
 
 #endif
