@@ -1,6 +1,6 @@
 #include "utils.h"
 
-namespace q100 {
+namespace q101 {
 
 class Solution {
   bool isSymmetric(TreeNode* left, TreeNode* right) {
@@ -16,12 +16,12 @@ class Solution {
   }
 };
 
-}  // namespace q100
+}  // namespace q101
 
 int main() {
   TreeNode* root = new TreeNode({1, 2, 2, 3, 4, 4, 3});
   print(root);
-  auto result = q100::Solution().isSymmetric(root);
+  auto result = q101::Solution().isSymmetric(root);
   print(result);
   delete root;
 }
