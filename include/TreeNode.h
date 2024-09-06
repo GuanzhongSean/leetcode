@@ -15,6 +15,7 @@ struct TreeNode {
 
   enum Sentinel { null = INT_MIN };
 
+  TreeNode() : val(0) {}
   TreeNode(int x) : val(x) {}
   TreeNode(int x, TreeNode *left, TreeNode *right)
       : val(x), left(left), right(right) {}
