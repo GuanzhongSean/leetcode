@@ -5,6 +5,7 @@
 
 #include "ListNode.h"
 #include "TreeNode.h"
+#include "Node.h"
 
 struct NodeHash {
   size_t operator()(const pair<int, int> &pair) const {
@@ -20,6 +21,10 @@ inline void print(ListNode *head) {
 }
 
 inline void print(TreeNode *root) {
+  if (root) root->print();
+}
+
+inline void print(Node *root) {
   if (root) root->print();
 }
 
