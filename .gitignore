@@ -1,5 +1,6 @@
 *.out
 .venv/
+.idea/
 __pycache__/
 .clangd
 node_modules/
