@@ -14,6 +14,7 @@ class Solution {
     }
     auto [leftMax, leftMaxPath] = dfs(root->left);
     auto [rightMax, rightMaxPath] = dfs(root->right);
+
     int maxPathThroughRoot = leftMax + rightMax + root->val;
     int maxPath = max({leftMaxPath, rightMaxPath, maxPathThroughRoot, root->val});
     int maxSum = max(0, max(leftMax, rightMax) + root->val);

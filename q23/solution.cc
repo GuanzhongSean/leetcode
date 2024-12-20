@@ -32,8 +32,7 @@ class Solution {
     return ans;
   }
 
-  ListNode* mergeKLists1(
-      vector<ListNode*> lists) {  // more efficient (Heap sort)
+  ListNode* mergeKLists1(vector<ListNode*> lists) {  // more efficient (Heap sort)
     priority_queue<int, vector<int>, greater<>> pq{};
     for (auto& ln : lists) {
       while (ln) {

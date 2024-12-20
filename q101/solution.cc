@@ -11,9 +11,7 @@ class Solution {
   }
 
  public:
-  bool isSymmetric(TreeNode* root) {
-    return !root || isSymmetric(root->left, root->right);
-  }
+  bool isSymmetric(TreeNode* root) { return !root || isSymmetric(root->left, root->right); }
 };
 
 }  // namespace q101

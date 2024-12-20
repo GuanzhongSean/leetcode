@@ -9,8 +9,7 @@ class Solution {
     if (ind >= nums.size() - 1) return 0;
     if (dp[ind] != 0) return dp[ind];
     int ans = INT_MAX - 1;
-    for (int i = ind + 1; i <= ind + nums[ind]; i++)
-      ans = min(ans, 1 + recall(nums, i, dp));
+    for (int i = ind + 1; i <= ind + nums[ind]; i++) ans = min(ans, 1 + recall(nums, i, dp));
     return dp[ind] = ans;
   }
 
@@ -25,8 +24,7 @@ class Solution {
 class Solution2 {
  public:
   int jump(vector<int>& nums) {
-    for (int i = 1; i < nums.size(); i++)
-      nums[i] = max(nums[i] + i, nums[i - 1]);
+    for (int i = 1; i < nums.size(); i++) nums[i] = max(nums[i] + i, nums[i - 1]);
 
     int ind = 0;
     int ans = 0;

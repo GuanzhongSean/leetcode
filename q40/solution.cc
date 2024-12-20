@@ -15,8 +15,7 @@ class Solution {
   }
 
  private:
-  void helper(int ind, int target, vector<int>& arr, vector<int>& ds,
-              vector<vector<int>>& res) {
+  void helper(int ind, int target, vector<int>& arr, vector<int>& ds, vector<vector<int>>& res) {
     for (int i = ind; i < arr.size(); i++) {
       if (i > ind && arr[i] == arr[i - 1]) continue;
       if (arr[i] > target) break;

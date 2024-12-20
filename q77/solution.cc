@@ -52,4 +52,6 @@ class Solution2 {
   }
 };
 
-int main() { cout << Solution2().combine(4, 3); }
+int main() {
+  cout << Solution2().combine(4, 3);
+}

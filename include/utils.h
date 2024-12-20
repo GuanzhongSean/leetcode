@@ -4,8 +4,8 @@
 #include <type_traits>
 
 #include "ListNode.h"
-#include "TreeNode.h"
 #include "Node.h"
+#include "TreeNode.h"
 
 struct NodeHash {
   size_t operator()(const pair<int, int> &pair) const {

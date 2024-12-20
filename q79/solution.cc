@@ -9,8 +9,8 @@ class Solution {
   bool dfs(vector<vector<char>> &board, string &word, int i, int j, int index,
            vector<vector<bool>> &record) {
     if (index == word.size()) return true;
-    if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size() ||
-        board[i][j] != word[index] || record[i][j])
+    if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size() || board[i][j] != word[index] ||
+        record[i][j])
       return false;
     record[i][j] = true;
     if (dfs(board, word, i - 1, j, index + 1, record) ||
@@ -42,9 +42,7 @@ class Solution2 {
   int _rows = 0, _cols = 0;
   vector<std::vector<char>> *_board = nullptr;
   bool dfs(int i, int j, int idx) {
-    if (i < 0 || j < 0 || i == _rows || j == _cols ||
-        (*_board)[i][j] != _str[idx])
-      return false;
+    if (i < 0 || j < 0 || i == _rows || j == _cols || (*_board)[i][j] != _str[idx]) return false;
 
     if (idx == _lastIdx) return true;
 
@@ -83,8 +81,7 @@ class Solution2 {
     for (char c : _str)
       if (--freq[c - 'A'] < 0) return false;
 
-    if (freq[word[0] - 'A'] > freq[word[_lastIdx] - 'A'])
-      reverse(word.begin(), word.end());
+    if (freq[word[0] - 'A'] > freq[word[_lastIdx] - 'A']) reverse(word.begin(), word.end());
 
     for (int i = 0; i < _rows; ++i)
       for (int j = 0; j < _cols; ++j)
@@ -95,7 +92,6 @@ class Solution2 {
 };
 
 int main() {
-  vector<vector<char>> board{
-      {'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
+  vector<vector<char>> board{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
   cout << boolalpha << Solution().exist(board, "ABCCED") << endl;
 }

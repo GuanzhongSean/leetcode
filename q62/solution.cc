@@ -23,4 +23,6 @@ class Solution {
   }
 };
 
-int main() { cout << Solution().uniquePaths(3, 2) << endl; }
+int main() {
+  cout << Solution().uniquePaths(3, 2) << endl;
+}

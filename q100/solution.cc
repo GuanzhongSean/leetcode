@@ -5,17 +5,14 @@ namespace q100 {
 class Solution {
  public:
   bool isSameTree(TreeNode* p, TreeNode* q) {
-    return p == q ||
-           (p && q && p->val == q->val && isSameTree(p->left, q->left) &&
-            isSameTree(p->right, q->right));
+    return p == q || (p && q && p->val == q->val && isSameTree(p->left, q->left) &&
+                      isSameTree(p->right, q->right));
   }
 };
 
 class Solution0 {
  public:
-  bool isSameTree(TreeNode* p, TreeNode* q) {
-    return p == q || (p && p->equals(q));
-  }
+  bool isSameTree(TreeNode* p, TreeNode* q) { return p == q || (p && p->equals(q)); }
 };
 
 }  // namespace q100

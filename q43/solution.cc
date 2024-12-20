@@ -33,8 +33,7 @@ class Solution2 {
     for (int i = num1.size() - 1; 0 <= i; --i) {
       int carry = 0;
       for (int j = num2.size() - 1; 0 <= j; --j) {
-        int tmp =
-            (sum[i + j + 1] - '0') + (num1[i] - '0') * (num2[j] - '0') + carry;
+        int tmp = (sum[i + j + 1] - '0') + (num1[i] - '0') * (num2[j] - '0') + carry;
         sum[i + j + 1] = tmp % 10 + '0';
         carry = tmp / 10;
       }

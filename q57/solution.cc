@@ -6,8 +6,7 @@ using namespace std;
 
 class Solution {
  public:
-  vector<vector<int>> insert(vector<vector<int>> &intervals,
-                             vector<int> &newInterval) {
+  vector<vector<int>> insert(vector<vector<int>> &intervals, vector<int> &newInterval) {
     bool inserted = false;
     vector<vector<int>> ans{};
     for (auto i : intervals) {
@@ -31,13 +30,11 @@ class Solution {
 
 class Solution2 {
  public:
-  vector<vector<int>> insert(vector<vector<int>> &intervals,
-                             vector<int> &newInterval) {
+  vector<vector<int>> insert(vector<vector<int>> &intervals, vector<int> &newInterval) {
     int i = 0;
     vector<vector<int>> ans;
 
-    while (i < intervals.size() && intervals[i][1] < newInterval[0])
-      ans.push_back(intervals[i++]);
+    while (i < intervals.size() && intervals[i][1] < newInterval[0]) ans.push_back(intervals[i++]);
 
     while (i < intervals.size() && intervals[i][0] <= newInterval[1]) {
       newInterval[0] = min(newInterval[0], intervals[i][0]);

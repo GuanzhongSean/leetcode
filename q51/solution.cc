@@ -7,14 +7,12 @@ using namespace std;
 
 class Solution {
  public:
-  void solve(int col, int n, vector<string> &board,
-             vector<vector<string>> &answer, vector<int> &leftRow,
-             vector<int> &upperDiag, vector<int> &lowerDiag) {
+  void solve(int col, int n, vector<string> &board, vector<vector<string>> &answer,
+             vector<int> &leftRow, vector<int> &upperDiag, vector<int> &lowerDiag) {
     if (col == n) answer.push_back(board);
 
     for (int row = 0; row < n; row++) {
-      if (leftRow[row] == 0 && upperDiag[row + col] == 0 &&
-          lowerDiag[n - 1 + col - row] == 0) {
+      if (leftRow[row] == 0 && upperDiag[row + col] == 0 && lowerDiag[n - 1 + col - row] == 0) {
         board[row][col] = 'Q';
         leftRow[row] = 1;
         upperDiag[row + col] = 1;
@@ -40,4 +38,6 @@ class Solution {
   }
 };
 
-int main() { cout << Solution().solveNQueens(4); }
+int main() {
+  cout << Solution().solveNQueens(4);
+}

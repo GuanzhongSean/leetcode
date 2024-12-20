@@ -58,10 +58,7 @@ int main() {
   ListNode *head = new ListNode(
       1,
       new ListNode(
-          1,
-          new ListNode(
-              3, new ListNode(
-                     3, new ListNode(4, new ListNode(4, new ListNode(5)))))));
+          1, new ListNode(3, new ListNode(3, new ListNode(4, new ListNode(4, new ListNode(5)))))));
   ListNode *result = Solution().deleteDuplicates(head);
   result->print();
   delete head;

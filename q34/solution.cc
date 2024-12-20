@@ -25,8 +25,7 @@ class Solution {
         }
         while (m1 <= r) {
           m = (m1 + r) / 2;
-          if (nums[m] == target &&
-              (m == nums.size() - 1 || nums[m + 1] != target)) {
+          if (nums[m] == target && (m == nums.size() - 1 || nums[m + 1] != target)) {
             ans[1] = m;
             break;
           } else if (nums[m] > target)

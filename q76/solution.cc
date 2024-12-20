@@ -32,4 +32,6 @@ class Solution {
   }
 };
 
-int main() { cout << Solution().minWindow("ADOBECODEBANC", "ABC") << endl; }
+int main() {
+  cout << Solution().minWindow("ADOBECODEBANC", "ABC") << endl;
+}

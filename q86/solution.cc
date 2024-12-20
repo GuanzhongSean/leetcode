@@ -32,9 +32,7 @@ class Solution {
 
 int main() {
   ListNode* head = new ListNode(
-      1, new ListNode(
-             4, new ListNode(
-                    3, new ListNode(2, new ListNode(5, new ListNode(2))))));
+      1, new ListNode(4, new ListNode(3, new ListNode(2, new ListNode(5, new ListNode(2))))));
   ListNode* result = Solution().partition(head, 3);
   result->print();
   delete head;

@@ -34,8 +34,7 @@ class Solution {
 }  // namespace q103
 
 int main() {
-  TreeNode* root =
-      new TreeNode({1, 2, 3, 4, TreeNode::null, TreeNode::null, 5});
+  TreeNode* root = new TreeNode({1, 2, 3, 4, TreeNode::null, TreeNode::null, 5});
   print(root);
   auto result = q103::Solution().zigzagLevelOrder(root);
   print(result);

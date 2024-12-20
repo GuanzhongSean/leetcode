@@ -27,4 +27,6 @@ class Solution {
   }
 };
 
-int main() { cout << Solution().addBinary("111", "1011") << endl; }
+int main() {
+  cout << Solution().addBinary("111", "1011") << endl;
+}

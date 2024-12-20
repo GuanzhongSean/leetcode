@@ -37,4 +37,6 @@ class Solution2 {
   }
 };
 
-int main() { cout << Solution2().getPermutation(5, 3) << endl; }
+int main() {
+  cout << Solution2().getPermutation(5, 3) << endl;
+}

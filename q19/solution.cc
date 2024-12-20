@@ -12,8 +12,7 @@ class Solution {
     }
     int sz = container.size();
     while (container.size()) {
-      if (container.size() + n - 1 != sz)
-        head = new ListNode{container.top(), head};
+      if (container.size() + n - 1 != sz) head = new ListNode{container.top(), head};
       container.pop();
     }
     return head;

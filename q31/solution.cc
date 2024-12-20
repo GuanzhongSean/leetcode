@@ -24,9 +24,7 @@ class Solution {
     reverse(nums.begin() + last_ascend + 1, nums.end());
   }
 
-  void nextPermutation2(vector<int>& nums) {
-    next_permutation(nums.begin(), nums.end());
-  }
+  void nextPermutation2(vector<int>& nums) { next_permutation(nums.begin(), nums.end()); }
 };
 
 int main() {

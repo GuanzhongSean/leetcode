@@ -31,4 +31,6 @@ class Solution2 {
   }
 };
 
-int main() { cout << Solution().myPow(2, 10) << endl; }
+int main() {
+  cout << Solution().myPow(2, 10) << endl;
+}

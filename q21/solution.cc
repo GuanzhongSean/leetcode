@@ -27,8 +27,7 @@ class Solution {
 int main() {
   Solution s;
   ListNode* ln1 = new ListNode{5};
-  ListNode* ln2 =
-      new ListNode{-1, new ListNode{2, new ListNode{4, new ListNode{4}}}};
+  ListNode* ln2 = new ListNode{-1, new ListNode{2, new ListNode{4, new ListNode{4}}}};
   auto result = s.mergeTwoLists(ln1, ln2);
   result->print();
   delete result;

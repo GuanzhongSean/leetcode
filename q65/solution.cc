@@ -7,8 +7,7 @@ using namespace std;
 class Solution {
  public:
   bool isNumber(string s) {
-    regex r("^[+-]?((\\d+\\.\\d*)|(\\.\\d+)|(\\d+))(e[+-]?\\d+)?$",
-            regex_constants::icase);
+    regex r("^[+-]?((\\d+\\.\\d*)|(\\.\\d+)|(\\d+))(e[+-]?\\d+)?$", regex_constants::icase);
     return regex_match(s, r);
   }
 };
@@ -52,8 +51,7 @@ class Solution2 {
     // check digit after dot
     if (dot)
       if (beforeInt) {
-        if ((s[i] < '0' || s[i] > '9') && (s[i] != 'e' && s[i] != 'E'))
-          return false;
+        if ((s[i] < '0' || s[i] > '9') && (s[i] != 'e' && s[i] != 'E')) return false;
       } else {
         if (s[i] < '0' || s[i] > '9') return false;
       }

@@ -39,6 +39,5 @@ class Solution {
 int main() {
   Solution s;
   cout << s.convert("PAYPALISHIRING", 3) << endl;
-  if (s.convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR")
-    cout << "true" << endl;
+  if (s.convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR") cout << "true" << endl;
 }

@@ -19,7 +19,6 @@ fmt:
 	clang-format -i --verbose **/*.h
 	yapf -i --verbose **/*.py
 	npx prettier --write **/*.js
-	npx prettier --write **/*.css
 
 init:
 	sudo apt install clang clang-format clang-tidy clang-tools

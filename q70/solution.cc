@@ -27,4 +27,6 @@ class Solution2 {
   }
 };
 
-int main() { cout << Solution().climbStairs(6) << endl; }
+int main() {
+  cout << Solution().climbStairs(6) << endl;
+}

@@ -21,4 +21,6 @@ class Solution {
   }
 };
 
-int main() { cout << Solution().mySqrt(6) << endl; }
+int main() {
+  cout << Solution().mySqrt(6) << endl;
+}

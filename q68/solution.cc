@@ -38,8 +38,7 @@ class Solution {
 };
 
 int main() {
-  vector<string> words = {"This",          "is", "an", "example", "of", "text",
-                          "justification."};
+  vector<string> words = {"This", "is", "an", "example", "of", "text", "justification."};
   vector<string> result = Solution().fullJustify(words, 16);
   for (auto &s : result) {
     cout << s << "|" << endl;

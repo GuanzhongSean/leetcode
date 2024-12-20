@@ -23,4 +23,6 @@ class Solution {
   }
 };
 
-int main() { cout << Solution().minDistance("intention", "execution") << endl; }
+int main() {
+  cout << Solution().minDistance("intention", "execution") << endl;
+}

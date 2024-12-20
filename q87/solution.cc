@@ -20,8 +20,7 @@ class Solution0 {
       if (count[i] != 0) return false;
     }
     for (int i = 1; i < n; i++) {
-      if (isScramble(s1.substr(0, i), s2.substr(0, i)) &&
-          isScramble(s1.substr(i), s2.substr(i)))
+      if (isScramble(s1.substr(0, i), s2.substr(0, i)) && isScramble(s1.substr(i), s2.substr(i)))
         return true;
       if (isScramble(s1.substr(0, i), s2.substr(n - i)) &&
           isScramble(s1.substr(i), s2.substr(0, n - i)))
@@ -53,8 +52,7 @@ class Solution {
         return dp[l1][l2][len] = true;
       }
 
-      if (solve(s1, s2, l1 + i, l2, len - i) &&
-          solve(s1, s2, l1, l2 + (len - i), i)) {
+      if (solve(s1, s2, l1 + i, l2, len - i) && solve(s1, s2, l1, l2 + (len - i), i)) {
         return dp[l1][l2][len] = true;
       }
     }

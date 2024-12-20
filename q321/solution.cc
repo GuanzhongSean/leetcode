@@ -11,8 +11,7 @@ class Solution {
     stack<int> st;
     int n = nums.size();
     for (int i = 0; i < n; i++) {
-      while (!st.empty() && nums[st.top()] < nums[i] && n - i + st.size() > k)
-        st.pop();
+      while (!st.empty() && nums[st.top()] < nums[i] && n - i + st.size() > k) st.pop();
       if (st.size() < k) st.push(i);
     }
     vector<int> ans;
@@ -29,8 +28,7 @@ class Solution {
         ans[x++] = n2[j], j++;
       else if (n2[j] == n1[i]) {
         int indi = i, indj = j;
-        while (indi < n1.size() && indj < n2.size() && n1[indi] == n2[indj])
-          indi++, indj++;
+        while (indi < n1.size() && indj < n2.size() && n1[indi] == n2[indj]) indi++, indj++;
         if (indj == n2.size())
           ans[x++] = n1[i], i++;
         else {
@@ -70,4 +68,5 @@ class Solution {
   }
 };
 
-int main() {}
+int main() {
+}
