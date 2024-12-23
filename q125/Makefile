@@ -1,2 +1,3 @@
 all:
-	ts-node solution.ts
+	tsc solution.ts
+	node solution.js
