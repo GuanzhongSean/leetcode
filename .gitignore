@@ -9,3 +9,4 @@ package.json
 *.o
 *.so
 exec
+*.class
