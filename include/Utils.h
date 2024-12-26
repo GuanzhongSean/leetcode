@@ -51,4 +51,6 @@ inline void print(vector<T> v) {
   cout << v << endl;
 }
 
+bool isPalindrome(string s, bool alnum_only = true);
+
 #endif

@@ -1,5 +1,5 @@
+#include "Utils.h"
 #include "solution.cc"
-#include "utils.h"
 
 int main() {
   Node* root = new Node({1, 2, 3, 4, 5, 6, 7, 8, 9});

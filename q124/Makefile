@@ -1,6 +1,6 @@
 CXX = clang++
 CXXFLAGS = -std=c++20 -I../include -I../
-LDFLAGS = -L../include -lListNode -lTreeNode -lNode -lutils -lgtest -lgtest_main -pthread
+LDFLAGS = -L../include -lListNode -lTreeNode -lNode -lUtils -lgtest -lgtest_main -pthread
 
 all: exec
 

@@ -6,7 +6,7 @@ init:
 build: init exec
 
 exec:
-	clang++ -std=c++20 solution.cc -L../include -lListNode -lutils -I../include -I../
+	clang++ -std=c++20 solution.cc -L../include -lListNode -lUtils -I../include -I../
 	./a.out
 
 clean:

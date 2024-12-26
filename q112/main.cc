@@ -1,5 +1,5 @@
+#include "Utils.h"
 #include "solution.cc"
-#include "utils.h"
 
 int main() {
   TreeNode *root = new TreeNode({5, 4, 8, 11, TreeNode::null, 13, 4, 7, 2, TreeNode::null,

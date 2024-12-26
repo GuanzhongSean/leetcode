@@ -6,12 +6,12 @@ all:
 	clang++ -std=c++20 -shared -o include/libTreeNode.so include/TreeNode.o
 	clang++ -std=c++20 -fPIC -c include/Node.cc -o include/Node.o
 	clang++ -std=c++20 -shared -o include/libNode.so include/Node.o
-	clang++ -std=c++20 -fPIC -c include/utils.cc -o include/utils.o
-	clang++ -std=c++20 -shared -o include/libutils.so include/utils.o
+	clang++ -std=c++20 -fPIC -c include/Utils.cc -o include/Utils.o
+	clang++ -std=c++20 -shared -o include/libUtils.so include/Utils.o
 	export LD_LIBRARY_PATH=../include:$LD_LIBRARY_PATH
 
 clean:
-	rm */a.out */exec */*.o */*.so
+	rm -f */a.out */exec */*.o */*.so */*.class */src/*.class
 
 fmt:
 	clang-format -i --verbose **/*.cc
