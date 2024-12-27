@@ -11,4 +11,5 @@ int main() {
   auto result = q129::Solution().sumNumbers(root);
   print(result);
   EXPECT_EQ(result, 1026);
+  delete root;
 }
