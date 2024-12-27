@@ -3,13 +3,16 @@ from typing import List
 
 
 class Solution(object):
+
     class Node(object):
+
         def __init__(self, word):
             self.word = word
             self.neighbors = set()
 
     # return all the shortest transformation sequences
-    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+    def ladderLength(self, beginWord: str, endWord: str,
+                     wordList: List[str]) -> int:
         wordList = set(wordList)
         if endWord not in wordList:
             return 0
@@ -49,10 +52,12 @@ class Solution(object):
         return 0
 
 
-example1 = Solution().ladderLength("hit", "cog", ["hot", "dot", "dog", "lot", "log", "fog", "cog"])
+example1 = Solution().ladderLength(
+    "hit", "cog", ["hot", "dot", "dog", "lot", "log", "fog", "cog"])
 print(example1)
 assert example1 == 5
 
-example2 = Solution().ladderLength("hit", "cog", ["hot","dot","dog","lot","log"])
+example2 = Solution().ladderLength("hit", "cog",
+                                   ["hot", "dot", "dog", "lot", "log"])
 print(example2)
 assert example2 == 0

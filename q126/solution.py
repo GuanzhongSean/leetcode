@@ -4,7 +4,9 @@ from typing import List
 
 
 class Solution(object):
+
     class Node(object):
+
         def __init__(self, word):
             self.word = word
             self.neighbors = set()
@@ -59,12 +61,17 @@ class Solution(object):
 
 
 class Solution2:  # 44 ms, faster than 86.16%
-    def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
-        wordSet = set(wordList)  # to check if a word is existed in the wordSet, in O(1)
+
+    def findLadders(self, beginWord: str, endWord: str,
+                    wordList: List[str]) -> List[List[str]]:
+        wordSet = set(
+            wordList)  # to check if a word is existed in the wordSet, in O(1)
         wordSet.discard(beginWord)
 
         def neighbors(word):
-            for i in range(len(word)):  # change every possible single letters and check if it's in wordSet
+            for i in range(
+                    len(word)
+            ):  # change every possible single letters and check if it's in wordSet
                 for c in string.ascii_lowercase:
                     newWord = word[:i] + c + word[i + 1:]
                     if newWord in wordSet:
@@ -82,13 +89,15 @@ class Solution2:  # 44 ms, faster than 86.16%
                     for path in paths:
                         # form new paths with `nei` word at the end
                         nextLevel[nei].append(path + [nei])
-            wordSet -= set(nextLevel.keys())  # remove visited words to prevent loops
+            wordSet -= set(
+                nextLevel.keys())  # remove visited words to prevent loops
             level = nextLevel  # move to new level
 
         return []
 
 
-example = Solution().findLadders("hit", "cog", ["hot", "dot", "dog", "lot", "log", "fog", "cog"])
-assert example == [['hit', 'hot', 'dot', 'dog', 'cog'], ['hit', 'hot', 'lot', 'log', 'cog']]
+example = Solution().findLadders(
+    "hit", "cog", ["hot", "dot", "dog", "lot", "log", "fog", "cog"])
+assert example == [['hit', 'hot', 'dot', 'dog', 'cog'],
+                   ['hit', 'hot', 'lot', 'log', 'cog']]
 print(example)
-
