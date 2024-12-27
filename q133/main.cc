@@ -11,5 +11,6 @@ int main() {
   EXPECT_EQ(result->val, 1);
   EXPECT_EQ(result->neighbors.size(), 2);
   EXPECT_EQ(result->neighbors[0]->val, 2);
+  EXPECT_EQ(result->neighbors[1]->val, 4);
   print_human_readable_typename<decltype(result)>();
 }
