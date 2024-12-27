@@ -1,14 +1,30 @@
-all:
-	rm -f include/*.o include/*.so
+all: ListNode TreeNode Node Graph Utils
+	export LD_LIBRARY_PATH=../include:$LD_LIBRARY_PATH
+
+ListNode:
+	rm -f include/ListNode.o include/libListNode.so
 	clang++ -std=c++20 -fPIC -c include/ListNode.cc -o include/ListNode.o
 	clang++ -std=c++20 -shared -o include/libListNode.so include/ListNode.o
+
+TreeNode:
+	rm -f include/TreeNode.o include/libTreeNode.so
 	clang++ -std=c++20 -fPIC -c include/TreeNode.cc -o include/TreeNode.o
 	clang++ -std=c++20 -shared -o include/libTreeNode.so include/TreeNode.o
+
+Node:
+	rm -f include/Node.o include/libNode.so
 	clang++ -std=c++20 -fPIC -c include/Node.cc -o include/Node.o
 	clang++ -std=c++20 -shared -o include/libNode.so include/Node.o
+
+Graph:
+	rm -f include/Graph.o include/libGraph.so
+	clang++ -std=c++20 -fPIC -c include/Graph.cc -o include/Graph.o
+	clang++ -std=c++20 -shared -o include/libGraph.so include/Graph.o
+
+Utils:
+	rm -f include/Utils.o include/libUtils.so
 	clang++ -std=c++20 -fPIC -c include/Utils.cc -o include/Utils.o
 	clang++ -std=c++20 -shared -o include/libUtils.so include/Utils.o
-	export LD_LIBRARY_PATH=../include:$LD_LIBRARY_PATH
 
 clean:
 	rm -f */a.out */exec */*.o */*.so */*.class */src/*.class
