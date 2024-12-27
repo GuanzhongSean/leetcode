@@ -29,7 +29,7 @@ class Graph {
     void print(ostream& os = cout) const;
   };
 
-  Graph(vector<vector<int>> adjList);
+  Graph(const vector<vector<int>> &adjList);
   ~Graph() {
     for (Node* node : nodes) {
       delete node;
@@ -43,7 +43,7 @@ class Graph {
   vector<Node*> nodes{};
 };
 
-ostream& operator<<(ostream& os, Graph::Node* node);
-ostream& operator<<(ostream& os, Graph* graph);
+ostream& operator<<(ostream& os, const Graph::Node* node);
+ostream& operator<<(ostream& os, const Graph* graph);
 
 #endif

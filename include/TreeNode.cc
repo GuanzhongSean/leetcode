@@ -1,6 +1,6 @@
 #include "TreeNode.h"
 
-TreeNode::TreeNode(vector<int> from) {
+TreeNode::TreeNode(const vector<int> &from) {
   if (from.empty()) return;
   val = from[0];
   queue<TreeNode *> nodeQueue;
@@ -25,13 +25,13 @@ TreeNode::TreeNode(vector<int> from) {
   }
 }
 
-void TreeNode::print(ostream &os, const string &prefix, bool isLeft) {
+void TreeNode::print(ostream &os, const string &prefix, bool isLeft) const {
   if (right) right->print(os, prefix + (isLeft ? "│   " : "    "), false);
   os << prefix << (isLeft ? "└── " : "┌── ") << val << endl;
   if (left) left->print(os, prefix + (isLeft ? "    " : "│   "), true);
 }
 
-ostream &operator<<(ostream &os, TreeNode *node) {
+ostream &operator<<(ostream &os, const TreeNode *node) {
   if (node) node->print(os);
   return os;
 }

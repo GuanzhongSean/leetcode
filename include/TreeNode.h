@@ -18,18 +18,18 @@ struct TreeNode {
   TreeNode() : val(0) {}
   TreeNode(int x) : val(x) {}
   TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-  TreeNode(vector<int> from);
+  TreeNode(const vector<int> &from);
   ~TreeNode() {
     delete left;
     delete right;
   };
-  void print(ostream &os = cout, const string &prefix = "", bool isLeft = true);
-  bool equals(TreeNode *other) {
+  void print(ostream &os = cout, const string &prefix = "", bool isLeft = true) const;
+  bool equals(TreeNode *other) const {
     return this == other ||
            (other && val == other->val && left->equals(other->left) && right->equals(other->right));
   }
 };
 
-ostream &operator<<(ostream &os, TreeNode *node);
+ostream &operator<<(ostream &os, const TreeNode *node);
 
 #endif

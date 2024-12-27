@@ -25,7 +25,7 @@ Node::Node(vector<int> from) {
   }
 }
 
-void Node::print(ostream &os, const string &prefix, bool isLeft) {
+void Node::print(ostream &os, const string &prefix, bool isLeft) const {
   if (right) right->print(os, prefix + (isLeft ? "│   " : "    "), false);
   os << prefix << (isLeft ? "└── " : "┌── ") << val;
   if (next) os << " => " << next->val;
@@ -33,7 +33,7 @@ void Node::print(ostream &os, const string &prefix, bool isLeft) {
   if (left) left->print(os, prefix + (isLeft ? "    " : "│   "), true);
 }
 
-ostream &operator<<(ostream &os, Node *node) {
+ostream &operator<<(ostream &os, const Node *node) {
   if (node) node->print(os);
   return os;
 }

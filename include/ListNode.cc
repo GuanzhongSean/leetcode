@@ -1,6 +1,6 @@
 #include "ListNode.h"
 
-ListNode::ListNode(vector<int> from) {
+ListNode::ListNode(const vector<int> &from) {
   if (from.empty()) return;
   val = from[0];
   ListNode *cur = this;
@@ -10,15 +10,15 @@ ListNode::ListNode(vector<int> from) {
   }
 }
 
-void ListNode::print() {
-  cout << val << " ";
+void ListNode::print(ostream &os) const {
+  os << val << " ";
   if (next)
     next->print();
   else
-    cout << endl;
+    os << endl;
 }
 
-ostream &operator<<(ostream &os, ListNode *node) {
-  if (!node) return os << endl;
-  return os << node->val << " " << node->next;
+ostream &operator<<(ostream &os, const ListNode *node) {
+  if (node) node->print(os);
+  return os;
 }

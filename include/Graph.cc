@@ -8,7 +8,7 @@ void Graph::Node::print(ostream &os) const {
   os << "]" << endl;
 }
 
-Graph::Graph(vector<vector<int>> adjList) {
+Graph::Graph(const vector<vector<int>> &adjList) {
   for (int i = 0; i < adjList.size(); i++) {
     nodes.push_back(new Node(i + 1));
   }
@@ -25,12 +25,12 @@ void Graph::print(ostream &os) const {
   }
 }
 
-ostream &operator<<(ostream &os, Graph::Node *node) {
+ostream &operator<<(ostream &os, const Graph::Node *node) {
   if (node) node->print(os);
   return os;
 }
 
-ostream &operator<<(ostream &os, Graph *graph) {
+ostream &operator<<(ostream &os, const Graph *graph) {
   if (graph) graph->print(os);
   return os;
 }

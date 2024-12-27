@@ -11,11 +11,11 @@ struct ListNode {
   ListNode *next = nullptr;
   ListNode(int x) : val(x) {}
   ListNode(int x, ListNode *next) : val(x), next(next) {}
-  ListNode(vector<int> from);
+  ListNode(const vector<int> &from);
   ~ListNode() { delete next; };
-  void print();
+  void print(ostream &os = cout) const;
 };
 
-ostream &operator<<(ostream &os, ListNode *node);
+ostream &operator<<(ostream &os, const ListNode *node);
 
 #endif
