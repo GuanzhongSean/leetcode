@@ -11,7 +11,7 @@ static const char _([]() -> char {
   return '$';
 }());
 
-bool isPalindrome(string s, bool alnum_only) {
+bool isPalindrome(const string &s, bool alnum_only) {
   if (s.empty()) return true;
   int l = 0, r = s.size() - 1;
   while (l < r) {
