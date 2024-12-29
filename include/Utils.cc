@@ -1,5 +1,6 @@
 #include "Utils.h"
 
+#ifdef _LEETCODE_OPTIMIZE_
 namespace {
 
 static const char _([]() -> char {
@@ -11,6 +12,9 @@ static const char _([]() -> char {
   return '$';
 }());
 
+}  // namespace
+#endif
+
 bool isPalindrome(const string &s, bool alnum_only) {
   if (s.empty()) return true;
   int l = 0, r = s.size() - 1;
@@ -21,5 +25,3 @@ bool isPalindrome(const string &s, bool alnum_only) {
   }
   return true;
 }
-
-}  // namespace
