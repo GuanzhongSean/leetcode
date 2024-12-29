@@ -2,5 +2,11 @@
   "makefile.configureOnOpen": false,
   "editor.formatOnSave": true,
   "clangd.arguments": ["--enable-config", "-pretty"],
-  "clangd.fallbackFlags": ["-I${workspaceFolder}/include", "-I${workspaceFolder}"]
+  "clangd.fallbackFlags": [
+    "-I${workspaceFolder}/include",
+    "-I${workspaceFolder}",
+    "-I/usr/include/python3.10",
+    "-I${env:HOME}/.local/lib/python3.10/site-packages/pybind11/include"
+  ],
+  "python.envFile": "${workspaceFolder}/.env",
 }

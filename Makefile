@@ -1,5 +1,7 @@
 all: ListNode TreeNode Node Graph Utils
-	export LD_LIBRARY_PATH=../include:$LD_LIBRARY_PATH
+
+python_bindings:
+	cd include/python_bindings && python3 setup.py build_ext --inplace
 
 ListNode:
 	rm -f include/ListNode.o include/libListNode.so
@@ -42,3 +44,5 @@ init:
 	sudo apt install clang clang-format clang-tidy clang-tools
 	pip install --upgrade yapf
 	npm install --global prettier
+
+.PHONY: clean fmt init_fmt init ListNode TreeNode Node Graph Utils

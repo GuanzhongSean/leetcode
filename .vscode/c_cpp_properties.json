@@ -6,13 +6,15 @@
                 "${workspaceFolder}/include",
                 "${workspaceFolder}/**",
                 "/usr/include",
-                "/usr/local/include"
+                "/usr/local/include",
+                "/usr/include/python3.10",
+                "${env:HOME}/.local/lib/python3.10/site-packages/pybind11/include"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/gcc",
-            "cStandard": "c11",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "linux-gcc-x64"
+            "compilerPath": "/usr/bin/clang++",
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "linux-clang-x64"
         }
     ],
     "version": 4
