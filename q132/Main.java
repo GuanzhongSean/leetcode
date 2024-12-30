@@ -1,4 +1,4 @@
-import src.Solution;
+import q132_src.Solution;
 
 public class Main {
     public static void main(String[] args) {

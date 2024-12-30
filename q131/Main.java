@@ -1,5 +1,5 @@
 import java.util.List;
-import src.Solution;
+import q131_src.Solution;
 
 public class Main {
     public static void main(String[] args) {
