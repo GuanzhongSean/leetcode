@@ -1,4 +1,6 @@
 all: ListNode TreeNode Node Graph Utils
+	sudo cp include/*.so /usr/local/lib/
+	sudo ldconfig
 
 python_bindings:
 	cd include/python_bindings && python3 setup.py build_ext --inplace
