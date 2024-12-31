@@ -14,3 +14,4 @@ include/build/
 obj/
 bin/
 .cs/
+*.sln
