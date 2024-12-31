@@ -77,6 +77,16 @@ constexpr bool is_string_v = is_string<T>::value;
 template <typename T>
 constexpr bool is_builtin_streamable_v = is_string_v<T> || is_fundamental_v<T>;
 
+template <size_t N>
+struct Factorial {
+  static constexpr size_t value = N * Factorial<N - 1>::value;
+};
+
+template <>
+struct Factorial<0U> {
+  static constexpr size_t value = 1;
+};
+
 template <typename T, typename... Args>
 void print(const T &first, const Args &...args) {
   if constexpr (sizeof...(args) > 0) {
