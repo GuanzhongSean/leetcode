@@ -79,7 +79,7 @@ constexpr bool is_builtin_streamable_v = is_string_v<T> || is_fundamental_v<T>;
 
 template <size_t N>
 struct Factorial {
-  static constexpr size_t value = N * Factorial<N - 1>::value;
+  static constexpr size_t value = N * Factorial<N - 1U>::value;
 };
 
 template <>
