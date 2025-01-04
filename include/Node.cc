@@ -69,12 +69,11 @@ Node::Node(const std::vector<std::vector<int>> &from) {
 
 void Node::print(std::ostream &os) const {
     os << "[ (Random::Node): " << val
-       << "(random: " << (random ? std::to_string(random->val) : "nullptr")
-       << ") ";
+       << "(random: " << (random ? std::to_string(random->val) : "nullptr") << ") ";
     Node *cur = next;
     while (cur) {
-        os << "-> " << cur->val << "(random: "
-           << (cur->random ? std::to_string(cur->random->val) : "nullptr")
+        os << "-> " << cur->val
+           << "(random: " << (cur->random ? std::to_string(cur->random->val) : "nullptr")
            << ") ";
         cur = cur->next;
     }

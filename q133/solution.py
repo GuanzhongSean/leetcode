@@ -3,6 +3,7 @@ from libGraph import Node, Graph
 
 
 class Solution(object):
+
     def cloneGraph(self, node):
         """
         :type node: Node

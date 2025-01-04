@@ -15,8 +15,7 @@ struct TreeNode {
 
     TreeNode() : val(0) {}
     TreeNode(int x) : val(x) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right)
-        : val(x), left(left), right(right) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
     TreeNode(const std::vector<int> &from);
     ~TreeNode() {
         delete left;

@@ -25,8 +25,7 @@ struct Node {
         delete left;
         delete right;
     };
-    void print(ostream& os = cout, const string& prefix = "",
-               bool isLeft = true) const;
+    void print(ostream& os = cout, const string& prefix = "", bool isLeft = true) const;
 };
 
 ostream& operator<<(ostream& os, const Node* node);
