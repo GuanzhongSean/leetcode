@@ -13,11 +13,11 @@
 #include "TreeNode.h"
 
 struct NodeHash {
-  size_t operator()(const pair<int, int> &pair) const {
-    return hash<int>()(pair.first) ^ (hash<int>()(pair.second) << 1);
+  size_t operator()(const std::pair<int, int> &pair) const {
+    return std::hash<int>()(pair.first) ^ (std::hash<int>()(pair.second) << 1);
   }
-  size_t operator()(const pair<double, double> &pair) const {
-    return hash<double>()(pair.first) ^ (hash<double>()(pair.second) << 1);
+  size_t operator()(const std::pair<double, double> &pair) const {
+    return std::hash<double>()(pair.first) ^ (std::hash<double>()(pair.second) << 1);
   }
 };
 
@@ -75,7 +75,7 @@ template <typename T>
 constexpr bool is_string_v = is_string<T>::value;
 
 template <typename T>
-constexpr bool is_builtin_streamable_v = is_string_v<T> || is_fundamental_v<T>;
+constexpr bool is_builtin_streamable_v = is_string_v<T> || std::is_fundamental_v<T>;
 
 template <size_t N>
 struct Factorial {
@@ -90,28 +90,28 @@ struct Factorial<0U> {
 template <typename T, typename... Args>
 void print(const T &first, const Args &...args) {
   if constexpr (sizeof...(args) > 0) {
-    string delimiter = is_builtin_streamable_v<T> ? " " : "\n";
-    cout << first << delimiter;
+    std::string delimiter = is_builtin_streamable_v<T> ? " " : "\n";
+    std::cout << first << delimiter;
     print(args...);
   } else {
-    cout << first;
-    if (is_builtin_streamable_v<T>) cout << endl;
+    std::cout << first;
+    if (is_builtin_streamable_v<T>) std::cout << std::endl;
   }
 }
 
 template <typename T>
-ostream &operator<<(ostream &os, const vector<T> &v) {
-  string delimiter = is_fundamental_v<T> ? " " : "\n";
+ostream &operator<<(ostream &os, const std::vector<T> &v) {
+  std::string delimiter = std::is_fundamental_v<T> ? " " : "\n";
   os << "[" << delimiter;
   for (T i : v) os << i << delimiter;
   return os << "]";
 }
 
 template <typename T>
-inline void print(const vector<T> &v) {
-  cout << v << endl;
+inline void print(const std::vector<T> &v) {
+  std::cout << v << std::endl;
 }
 
-bool isPalindrome(const string &s, bool alnum_only = true);
+bool isPalindrome(const std::string &s, bool alnum_only = true);
 
 #endif

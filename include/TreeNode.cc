@@ -1,9 +1,9 @@
 #include "TreeNode.h"
 
-TreeNode::TreeNode(const vector<int> &from) {
+TreeNode::TreeNode(const std::vector<int> &from) {
   if (from.empty()) return;
   val = from[0];
-  queue<TreeNode *> nodeQueue;
+  std::queue<TreeNode *> nodeQueue;
   nodeQueue.push(this);
 
   int i = 1;
@@ -25,13 +25,13 @@ TreeNode::TreeNode(const vector<int> &from) {
   }
 }
 
-void TreeNode::print(ostream &os, const string &prefix, bool isLeft) const {
+void TreeNode::print(std::ostream &os, const std::string &prefix, bool isLeft) const {
   if (right) right->print(os, prefix + (isLeft ? "│   " : "    "), false);
-  os << prefix << (isLeft ? "└── " : "┌── ") << val << endl;
+  os << prefix << (isLeft ? "└── " : "┌── ") << val << std::endl;
   if (left) left->print(os, prefix + (isLeft ? "    " : "│   "), true);
 }
 
-ostream &operator<<(ostream &os, const TreeNode *node) {
+std::ostream &operator<<(std::ostream &os, const TreeNode *node) {
   if (node) node->print(os);
   return os;
 }

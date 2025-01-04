@@ -1,24 +1,26 @@
 #include "ListNode.h"
 
-ListNode::ListNode(const vector<int> &from) {
-  if (from.empty()) return;
-  val = from[0];
-  ListNode *cur = this;
-  for (int i = 1; i < from.size(); i++) {
-    cur->next = new ListNode(from[i]);
-    cur = cur->next;
-  }
+ListNode::ListNode(const std::vector<int> &from) {
+    if (from.empty()) return;
+    val = from[0];
+    ListNode *cur = this;
+    for (int i = 1; i < from.size(); i++) {
+        cur->next = new ListNode(from[i]);
+        cur = cur->next;
+    }
 }
 
-void ListNode::print(ostream &os) const {
-  os << val << " ";
-  if (next)
-    next->print();
-  else
-    os << endl;
+void ListNode::print(std::ostream &os) const {
+    os << "[ (ListNode): " << val << " ";
+    ListNode *cur = next;
+    while (cur) {
+        os << "-> " << cur->val << " ";
+        cur = cur->next;
+    }
+    os << "]" << std::endl;
 }
 
-ostream &operator<<(ostream &os, const ListNode *node) {
-  if (node) node->print(os);
-  return os;
+std::ostream &operator<<(std::ostream &os, const ListNode *node) {
+    if (node) node->print(os);
+    return os;
 }

@@ -7,10 +7,10 @@ void Graph::Node::print(ostream &os) const {
   for (Node *neighbor : neighbors) {
     os << neighbor->val << " ";
   }
-  os << "]" << endl;
+  os << "]" << std::endl;
 }
 
-Graph::Graph(const vector<vector<int>> &adjList) {
+Graph::Graph(const std::vector<std::vector<int>> &adjList) {
   for (size_t i = 0; i < adjList.size(); i++) {
     nodes.push_back(new Node(i + 1));
   }

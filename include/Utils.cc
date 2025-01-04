@@ -15,7 +15,7 @@ static const char _([]() -> char {
 }  // namespace
 #endif
 
-bool isPalindrome(const string &s, bool alnum_only) {
+bool isPalindrome(const std::string &s, bool alnum_only) {
   if (s.empty()) return true;
   int l = 0, r = s.size() - 1;
   while (l < r) {
