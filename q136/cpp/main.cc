@@ -4,7 +4,7 @@
 #include "solution.cc"
 
 int main() {
-  vector<int> v{2, 2, 1};
+  std::vector<int> v{2, 2, 1};
   auto result = q136::Solution().singleNumber(v);
   print(result);
   EXPECT_EQ(result, 1);

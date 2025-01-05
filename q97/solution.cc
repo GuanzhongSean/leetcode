@@ -4,6 +4,8 @@
 
 namespace q97 {
 
+using namespace std;
+
 class Solution1 {
    public:
     bool isInterleave(string s1, string s2, string s3) {
@@ -63,13 +65,13 @@ class Solution {
 }  // namespace q97
 
 int main() {
-    string s1 =
+    std::string s1 =
         "bbbbbabbbbabaababaaaabbababbaaabbabbaaabaaaaababbbababbbbbabbbbababbabaa"
         "bababbbaabababababbbaaababaa";
-    string s2 =
+    std::string s2 =
         "babaaaabbababbbabbbbaabaabbaabbbbaabaaabaababaaaabaaabbaaabaaaabaabaabbb"
         "bbbbbbbbabaaabbababbabbabaab";
-    string s3 =
+    std::string s3 =
         "babbbabbbaaabbababbbbababaabbabaabaaabbbbabbbaaabbbaaaaabbbbaabbaaababab"
         "baaaaaabababbababaababbababbbababbbbaaaabaabbabbaaaaabbabbaaaabbbaabaaab"
         "aababaababbaaabbbbbabbbbaabbabaabbbbabaaabbababbabbabbab";

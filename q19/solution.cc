@@ -5,7 +5,7 @@
 class Solution {
    public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        stack<int> container;
+        std::stack<int> container;
         while (head) {
             container.push(head->val);
             head = head->next;

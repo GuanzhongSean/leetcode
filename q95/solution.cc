@@ -4,6 +4,8 @@
 
 namespace q95 {
 
+using namespace std;
+
 class Solution {
     unordered_map<pair<int, int>, vector<TreeNode*>, NodeHash> umap;
     vector<TreeNode*> generateTrees(int start, int end) {

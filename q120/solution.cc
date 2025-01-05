@@ -1,9 +1,9 @@
 #include <cstring>
 #include <vector>
 
-namespace q120 {
-
 using namespace std;
+
+namespace q120 {
 
 class Solution {
     int memo[200][200];

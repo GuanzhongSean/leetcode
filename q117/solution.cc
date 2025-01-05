@@ -2,9 +2,9 @@
 
 #include "Node.h"
 
-namespace q117 {
-
 using namespace std;
+
+namespace q117 {
 
 class Solution {
    public:

@@ -2,6 +2,8 @@
 
 #include "TreeNode.h"
 
+using namespace std;
+
 namespace q114 {
 
 class Solution {

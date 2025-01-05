@@ -1,8 +1,8 @@
 #include "Node.h"
 
-namespace q116 {
-
 using namespace std;
+
+namespace q116 {
 
 class Solution {
    public:

@@ -3,7 +3,7 @@
 namespace q102 {
 
 class Solution {
-    vector<vector<int>> result;
+    std::vector<std::vector<int>> result;
     void levelOrder(TreeNode* root, int level) {
         if (!root) return;
         if (result.size() <= level) {
@@ -15,7 +15,7 @@ class Solution {
     }
 
    public:
-    vector<vector<int>> levelOrder(TreeNode* root) {
+    std::vector<std::vector<int>> levelOrder(TreeNode* root) {
         result.clear();
         levelOrder(root, 0);
         return result;

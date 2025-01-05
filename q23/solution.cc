@@ -5,6 +5,8 @@
 
 #include "ListNode.h"
 
+using namespace std;
+
 class Solution {
    public:
     ListNode* mergeKLists(vector<ListNode*> lists) {  // more efficient (Map sort)

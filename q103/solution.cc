@@ -6,16 +6,16 @@ namespace q103 {
 
 class Solution {
    public:
-    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
-        vector<vector<int>> result;
+    std::vector<std::vector<int>> zigzagLevelOrder(TreeNode* root) {
+        std::vector<std::vector<int>> result;
         if (!root) return result;
 
-        queue<TreeNode*> q;
+        std::queue<TreeNode*> q;
         q.push(root);
         bool left_to_right = true;
         while (!q.empty()) {
             int size = q.size();
-            vector<int> level(size);
+            std::vector<int> level(size);
             for (int i = 0; i < size; i++) {
                 TreeNode* node = q.front();
                 q.pop();

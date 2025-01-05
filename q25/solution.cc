@@ -8,7 +8,7 @@ class Solution {
         if (k == 1) return head;
         ListNode* result = head;
         ListNode* prev = nullptr;
-        vector<ListNode*> group{};
+        std::vector<ListNode*> group{};
         while (head) {
             group.emplace_back(head);
             head = head->next;
@@ -32,7 +32,7 @@ class Solution {
 
 int main() {
     Solution s;
-    auto head = generateList(vector<int>{1, 2, 3, 4, 5, 6, 7});
+    auto head = new ListNode(std::vector<int>{1, 2, 3, 4, 5, 6, 7});
     auto result = s.reverseKGroup(head, 3);
     if (result) result->print();
     delete result;

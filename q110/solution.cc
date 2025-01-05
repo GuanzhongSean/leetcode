@@ -9,7 +9,7 @@ class Solution {
         int l = solve(root->left);
         int r = solve(root->right);
         if (abs(l - r) > 1) ans = false;
-        return max(l, r) + 1;
+        return std::max(l, r) + 1;
     }
 
    public:

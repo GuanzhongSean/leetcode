@@ -3,6 +3,8 @@
 
 #include "Utils.h"
 
+using namespace std;
+
 namespace q106 {
 
 class Solution {

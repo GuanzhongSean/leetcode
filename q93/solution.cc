@@ -2,6 +2,8 @@
 
 namespace q93 {
 
+using namespace std;
+
 class Solution {
     vector<string> result;
     vector<string> path;

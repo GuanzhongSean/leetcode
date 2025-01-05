@@ -2,6 +2,8 @@
 
 #include "Utils.h"
 
+using namespace std;
+
 class Solution {
    public:
     int firstMissingPositive(vector<int>& nums) {  // time: O(n), space: O(n)

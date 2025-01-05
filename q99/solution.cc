@@ -2,6 +2,8 @@
 
 namespace q99 {
 
+using std::swap;
+
 class Solution0 {
    public:
     void recoverTree(TreeNode* root) {

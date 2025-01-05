@@ -2,6 +2,8 @@
 
 #include "Utils.h"
 
+using namespace std;
+
 class Solution {
     vector<vector<int>> result;
     map<int, int> nums_;

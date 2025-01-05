@@ -2,6 +2,8 @@
 
 namespace q94 {
 
+using namespace std;
+
 class Solution {
     void inorderTraversal(TreeNode *root, vector<int> &result) {
         if (!root) return;

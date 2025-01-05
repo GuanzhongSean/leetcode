@@ -8,7 +8,7 @@ namespace q105 {
 
 class Solution {
    public:
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+    TreeNode* buildTree(std::vector<int>& preorder, std::vector<int>& inorder) {
         if (inorder.size() == 0) return nullptr;
         if (inorder.size() == 1) {
             preorder.erase(preorder.begin());
@@ -20,9 +20,9 @@ class Solution {
             preorder.erase(preorder.begin());
             int index = distance(inorder.begin(), it);
             TreeNode* result = new TreeNode(x);
-            vector<int> left(inorder.begin(), inorder.begin() + index);
+            std::vector<int> left(inorder.begin(), inorder.begin() + index);
             result->left = buildTree(preorder, left);
-            vector<int> right(inorder.begin() + index + 1, inorder.end());
+            std::vector<int> right(inorder.begin() + index + 1, inorder.end());
             result->right = buildTree(preorder, right);
             return result;
         }
@@ -32,9 +32,9 @@ class Solution {
 
 class Solution2 {
    public:
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        unordered_map<int, int> map;
-        stack<pair<int, TreeNode*>> stk;
+    TreeNode* buildTree(std::vector<int>& preorder, std::vector<int>& inorder) {
+        std::unordered_map<int, int> map;
+        std::stack<std::pair<int, TreeNode*>> stk;
         for (int i = 0; i < inorder.size(); i++) map[inorder[i]] = i;
 
         TreeNode* root = new TreeNode(preorder[0]);
@@ -62,8 +62,8 @@ class Solution2 {
 }  // namespace q105
 
 int main() {
-    vector<int> preorder{3, 9, 20, 15, 7};
-    vector<int> inorder{9, 3, 15, 20, 7};
+    std::vector<int> preorder{3, 9, 20, 15, 7};
+    std::vector<int> inorder{9, 3, 15, 20, 7};
     auto result = q105::Solution().buildTree(preorder, inorder);
     print(result);
     delete result;
