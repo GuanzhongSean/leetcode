@@ -13,25 +13,25 @@
 #include "TreeNode.h"
 
 struct NodeHash {
-    size_t operator()(const std::pair<int, int> &pair) const {
-        return std::hash<int>()(pair.first) ^ (std::hash<int>()(pair.second) << 1);
-    }
-    size_t operator()(const std::pair<double, double> &pair) const {
-        return std::hash<double>()(pair.first) ^ (std::hash<double>()(pair.second) << 1);
-    }
+	size_t operator()(const std::pair<int, int> &pair) const {
+		return std::hash<int>()(pair.first) ^ (std::hash<int>()(pair.second) << 1);
+	}
+	size_t operator()(const std::pair<double, double> &pair) const {
+		return std::hash<double>()(pair.first) ^ (std::hash<double>()(pair.second) << 1);
+	}
 };
 
 template <typename T>
 void print_human_readable_typename() {
-    const char *mangledName = typeid(T).name();
-    int status;
-    char *demangledName = abi::__cxa_demangle(mangledName, nullptr, nullptr, &status);
-    if (status == 0) {
-        std::cout << "Type: " << demangledName << std::endl;
-    } else {
-        std::cout << "Type (mangled): " << mangledName << std::endl;
-    }
-    free(demangledName);
+	const char *mangledName = typeid(T).name();
+	int status;
+	char *demangledName = abi::__cxa_demangle(mangledName, nullptr, nullptr, &status);
+	if (status == 0) {
+		std::cout << "Type: " << demangledName << std::endl;
+	} else {
+		std::cout << "Type (mangled): " << mangledName << std::endl;
+	}
+	free(demangledName);
 }
 
 template <typename T, typename = void>
@@ -39,8 +39,8 @@ struct is_streamable : std::false_type {};
 
 template <typename T>
 struct is_streamable<
-    T, std::void_t<decltype(std::declval<std::ostream &>() << std::declval<T>())>>
-    : std::true_type {};
+	T, std::void_t<decltype(std::declval<std::ostream &>() << std::declval<T>())>>
+	: std::true_type {};
 
 template <typename T>
 constexpr bool is_streamable_v = is_streamable<T>::value;
@@ -80,37 +80,37 @@ constexpr bool is_builtin_streamable_v = is_string_v<T> || std::is_fundamental_v
 
 template <size_t N>
 struct Factorial {
-    static constexpr size_t value = N * Factorial<N - 1U>::value;
+	static constexpr size_t value = N * Factorial<N - 1U>::value;
 };
 
 template <>
 struct Factorial<0U> {
-    static constexpr size_t value = 1;
+	static constexpr size_t value = 1;
 };
 
 template <typename T, typename... Args>
 void print(const T &first, const Args &...args) {
-    if constexpr (sizeof...(args) > 0) {
-        std::string delimiter = is_builtin_streamable_v<T> ? " " : "\n";
-        std::cout << first << delimiter;
-        print(args...);
-    } else {
-        std::cout << first;
-        if (is_builtin_streamable_v<T>) std::cout << std::endl;
-    }
+	if constexpr (sizeof...(args) > 0) {
+		std::string delimiter = is_builtin_streamable_v<T> ? " " : "\n";
+		std::cout << first << delimiter;
+		print(args...);
+	} else {
+		std::cout << first;
+		if (is_builtin_streamable_v<T>) std::cout << std::endl;
+	}
 }
 
 template <typename T>
 ostream &operator<<(ostream &os, const std::vector<T> &v) {
-    std::string delimiter = std::is_fundamental_v<T> ? " " : "\n";
-    os << "[" << delimiter;
-    for (T i : v) os << i << delimiter;
-    return os << "]";
+	std::string delimiter = std::is_fundamental_v<T> ? " " : "\n";
+	os << "[" << delimiter;
+	for (T i : v) os << i << delimiter;
+	return os << "]";
 }
 
 template <typename T>
 inline void print(const std::vector<T> &v) {
-    std::cout << v << std::endl;
+	std::cout << v << std::endl;
 }
 
 bool isPalindrome(const std::string &s, bool alnum_only = true);
