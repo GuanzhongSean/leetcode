@@ -3,6 +3,8 @@
 #ifdef _LEETCODE_OPTIMIZE_
 namespace {
 
+using namespace std;
+
 static const char _([]() -> char {
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr);

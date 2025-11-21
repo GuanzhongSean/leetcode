@@ -30,6 +30,11 @@ Utils:
 	clang++ -std=c++20 -fPIC -c include/Utils.cc -o include/Utils.o
 	clang++ -std=c++20 -shared -o include/libUtils.so include/Utils.o
 
+Utils-opt:
+	rm -f include/Utils.o include/libUtils.so
+	clang++ -std=c++20 -fPIC -D_LEETCODE_OPTIMIZE_ -c include/Utils.cc -o include/Utils.o
+	clang++ -std=c++20 -shared -o include/libUtils.so include/Utils.o
+
 clean:
 	rm -f */a.out */exec */*.o */*.so */*.class */src/*.class
 
