@@ -2,6 +2,10 @@
 
 using namespace std;
 
+namespace {
+
+namespace V1 {
+
 class MedianFinder {
 	multiset<int> data;
 	multiset<int>::iterator mid;
@@ -41,6 +45,34 @@ class MedianFinder {
 		}
 	}
 };
+}  // namespace V1
+
+inline namespace V2 {
+
+class MedianFinder {
+   public:
+	priority_queue<int> maxh;
+	priority_queue<int, vector<int>, greater<int>> minh;
+
+	MedianFinder() {}
+
+	void addNum(int num) {
+		maxh.push(num);
+		minh.push(maxh.top());
+		maxh.pop();
+		if (minh.size() > maxh.size()) {
+			maxh.push(minh.top());
+			minh.pop();
+		}
+	}
+
+	double findMedian() {
+		return maxh.size() == minh.size() ? (maxh.top() + minh.top()) / 2.0 : maxh.top();
+	}
+};
+}  // namespace V2
+
+}  // namespace
 
 int main() {
 	MedianFinder medianFinder = MedianFinder();
