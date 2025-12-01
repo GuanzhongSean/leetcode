@@ -1,9 +1,10 @@
-#include <iostream>
-#include <stack>
-#include <vector>
+#include "Utils.h"
+
+namespace q42 {
 
 using namespace std;
 
+namespace V1 {
 class Solution {
    public:
 	int trap(vector<int>& height) {	 // add up horizontally
@@ -33,8 +34,10 @@ class Solution {
 		return sum;
 	}
 };
+}  // namespace V1
 
-class Solution2 {
+namespace V2 {
+class Solution {
    public:
 	int trap(vector<int>& height) {	 // add up vertically
 		int n = height.size();
@@ -58,9 +61,27 @@ class Solution2 {
 		return ans;
 	}
 };
+}  // namespace V2
 
-int main() {
-	vector<int> heights{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
-	auto result = Solution{}.trap(heights);
-	cout << result << endl;
-}
+inline namespace V3 {
+class Solution {
+   public:
+	int trap(vector<int>& height) {
+		const size_t n = height.size();
+		vector<int> left(n), right(n);
+		left[0] = height[0];
+		right[n - 1] = height[n - 1];
+		for (size_t i = 1; i < n; ++i) {
+			left[i] = max(left[i - 1], height[i]);
+			right[n - 1 - i] = max(right[n - i], height[n - 1 - i]);
+		}
+
+		int volumn = 0;
+		for (size_t i = 1; i < n - 1; ++i)
+			volumn += max(0, min(left[i - 1], right[i + 1]) - height[i]);
+		return volumn;
+	}
+};
+}  // namespace V3
+
+}  // namespace q42
