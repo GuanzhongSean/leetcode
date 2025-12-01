@@ -1,9 +1,10 @@
-#include <algorithm>
-#include <iostream>
-#include <vector>
+#include "Utils.h"
+
+namespace q1 {
 
 using namespace std;
 
+namespace V1 {
 class Solution {
    public:
 	vector<vector<int>> fourSum(vector<int>& nums, int target) {
@@ -35,15 +36,11 @@ class Solution {
 		}
 		return answer;
 	}
-	vector<vector<int>> fourSum1(vector<int>& nums, int target) {
-		vector<vector<int>> ans;
-		vector<int> path;
-		sort(nums.begin(), nums.end());
-		nSum(nums, 4, target, 0, nums.size() - 1, path, ans);
-		return ans;
-	}
+};
+}  // namespace V1
 
-   private:
+inline namespace V2 {
+class Solution {
 	// Finds n numbers that add up to the target in [l, r].
 	void nSum(const vector<int>& nums, long n, long target, int l, int r,
 			  vector<int>& path, vector<vector<int>>& ans) {
@@ -78,16 +75,16 @@ class Solution {
 			path.pop_back();
 		}
 	}
-};
 
-int main() {
-	Solution s;
-	vector<int> nums{-1000000000, -1000000000, -1000000000, -1000000000};
-	auto result = s.fourSum(nums, -1);
-	for (auto v : result) {
-		for (auto i : v) {
-			cout << i << " ";
-		}
-		cout << endl;
+   public:
+	vector<vector<int>> fourSum(vector<int>& nums, int target) {
+		vector<vector<int>> ans;
+		vector<int> path;
+		sort(nums.begin(), nums.end());
+		nSum(nums, 4, target, 0, nums.size() - 1, path, ans);
+		return ans;
 	}
-}
+};
+}  // namespace V2
+
+}  // namespace q1
