@@ -1,13 +1,17 @@
+CXX = clang++
+CXXFLAGS = -std=c++20 -I../include -I../
+LDFLAGS = -L../include -lListNode -lTreeNode -lNode -lUtils -lgtest -lgtest_main -pthread
+
 all: exec
 
-init:
-	cd .. && make -s
+exec: main.o
+	$(CXX) $(CXXFLAGS) -o exec main.o $(LDFLAGS)
+	./exec
 
-build: init exec
-
-exec:
-	clang++ -std=c++20 main.cc -L../include -lListNode -lTreeNode -lUtils -I../include -I../
-	./a.out
+main.o: main.cc
+	$(CXX) $(CXXFLAGS) -c main.cc
 
 clean:
-	rm -f a.out
+	rm -f *.o exec
+
+.PHONY: all clean exec

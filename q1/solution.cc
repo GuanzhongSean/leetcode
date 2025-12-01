@@ -1,26 +1,22 @@
-#include <iostream>
-#include <vector>
+#include "Utils.h"
+
+namespace q1 {
 
 using namespace std;
 
+inline namespace V1 {
 class Solution {
    public:
 	vector<int> twoSum(vector<int>& nums, int target) {
-		for (int i = 0; i < nums.size(); i++) {
-			for (int j = i + 1; j < nums.size(); j++) {
-				if (nums[i] + nums[j] == target) return vector<int>{i, j};
-			}
+		unordered_map<int, int> dict;
+		for (int i = 0; i < nums.size(); ++i) {
+			if (dict.count(target - nums[i]) && dict[target - nums[i]] != i)
+				return {dict[target - nums[i]], i};
+			dict[nums[i]] = i;
 		}
-		return vector<int>{};
+		return {};
 	}
 };
+}  // namespace V1
 
-int main() {
-	Solution s;
-	vector<int> nums{3, 2, 4};
-	int target = 6;
-	vector<int> result = s.twoSum(nums, target);
-	for (int x : result) {
-		cout << x << endl;
-	}
-}
+}  // namespace q1
