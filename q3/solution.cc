@@ -1,9 +1,10 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#include "Utils.h"
+
+namespace q3 {
 
 using namespace std;
 
+inline namespace V1 {
 class Solution {
    public:
 	uint16_t lengthOfLongestSubstring(string s) {
@@ -24,10 +25,6 @@ class Solution {
 		return max_substr;
 	}
 };
+}  // namespace V1
 
-int main() {
-	Solution s;
-	cout << s.lengthOfLongestSubstring("abcabcbb") << endl;	 // 3
-	cout << s.lengthOfLongestSubstring("bbbbb") << endl;	 // 1
-	cout << s.lengthOfLongestSubstring("pwwkew") << endl;	 // 3
-}
+}  // namespace q3
