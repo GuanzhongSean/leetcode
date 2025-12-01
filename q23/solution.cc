@@ -1,12 +1,10 @@
-#include <functional>
-#include <map>
-#include <queue>
-#include <vector>
+#include "Utils.h"
 
-#include "ListNode.h"
+namespace q23 {
 
 using namespace std;
 
+namespace V1 {
 class Solution {
    public:
 	ListNode* mergeKLists(vector<ListNode*> lists) {  // more efficient (Map sort)
@@ -33,8 +31,13 @@ class Solution {
 		}
 		return ans;
 	}
+};
+}  // namespace V1
 
-	ListNode* mergeKLists1(vector<ListNode*> lists) {  // more efficient (Heap sort)
+namespace V2 {
+class Solution {
+   public:
+	ListNode* mergeKLists(vector<ListNode*> lists) {  // more efficient (Heap sort)
 		priority_queue<int, vector<int>, greater<>> pq{};
 		for (auto& ln : lists) {
 			while (ln) {
@@ -57,8 +60,13 @@ class Solution {
 		}
 		return ans;
 	}
+};
+}  // namespace V2
 
-	ListNode* mergeKLists2(vector<ListNode*>& lists) {	// saves more memory
+namespace V3 {
+class Solution {
+   public:
+	ListNode* mergeKLists(vector<ListNode*>& lists) {  // saves more memory
 		ListNode* result = nullptr;
 		for (int i = 0; i < lists.size(); i++) {
 			ListNode* cur = lists[i];
@@ -109,20 +117,35 @@ class Solution {
 		}
 	}
 };
+}  // namespace V3
 
-int main() {
-	Solution s;
-	vector<ListNode*> lists{
-		nullptr,
-		new ListNode{1},
-		new ListNode{1},
-		new ListNode{-4},
-		new ListNode{1, new ListNode{4, new ListNode{5}}},
-		new ListNode{1, new ListNode{3, new ListNode{4}}},
-		new ListNode{2, new ListNode{6}},
+inline namespace V4 {
+class Solution {
+	struct Compare {
+		bool operator()(ListNode* a, ListNode* b) const {
+			return a->val > b->val;	 // min-heap
+		}
 	};
-	auto result = s.mergeKLists1(lists);
-	if (result) result->print();
-	delete result;
-	for (auto l : lists) delete l;
-}
+
+   public:
+	ListNode* mergeKLists(vector<ListNode*>& lists) {
+		priority_queue<ListNode*, vector<ListNode*>, Compare> pq;
+		for (ListNode* head : lists)
+			if (head) pq.push(head);
+		ListNode dummy = ListNode(-1);
+		ListNode* temp = &dummy;
+		while (!pq.empty()) {
+			ListNode* top = pq.top();
+			temp->next = top;
+			temp = top;
+			pq.pop();
+			if (top->next) pq.push(top->next);
+		}
+		temp = dummy.next;
+		dummy.next = nullptr;
+		return temp;
+	}
+};
+}  // namespace V4
+
+}  // namespace q23

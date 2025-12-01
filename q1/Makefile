@@ -2,7 +2,7 @@ CXX = clang++
 CXXFLAGS = -std=c++20 -I../include -I../
 LDFLAGS = -L../include -lListNode -lTreeNode -lNode -lUtils -lgtest -lgtest_main -pthread
 
-all: exec
+all: clean exec
 
 exec: main.o
 	$(CXX) $(CXXFLAGS) -o exec main.o $(LDFLAGS)
